@@ -19,4 +19,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Caracteristica.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Colonia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Edificios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Perfil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Planicie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Seres.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

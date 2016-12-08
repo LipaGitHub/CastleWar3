@@ -142,12 +142,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Caracteristica.h" />
     <ClInclude Include="Colonia.h" />
     <ClInclude Include="Edificios.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="Perfil.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Planicie.h" />

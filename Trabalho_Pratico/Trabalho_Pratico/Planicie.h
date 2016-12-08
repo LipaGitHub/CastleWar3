@@ -6,7 +6,7 @@ class planicie {
 	personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
 	int linha, coluna;
 public:
-	/*planicie(int l, int c) {
+	planicie(int l, int c) {
 		this->linha = l;
 		this->coluna = c;
 		mapa = new personagem **[l] ;
@@ -25,10 +25,9 @@ public:
 			cout << "\n";
 		}
 		return os.str();
-	}*/
+	}
 };
-/*ostream &operator <<(ostream &o, const planicie &p) {
+ostream &operator <<(ostream &o, const planicie &p) {
 	o << p.toString();
 	return o;
 }
-*/

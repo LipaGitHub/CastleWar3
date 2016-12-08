@@ -6,5 +6,6 @@ using namespace std;
 int main() {
 	Interface f;
 	f.menu();
+	
 	return 0;
 }

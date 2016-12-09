@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 	Interface f;
-	f.menu();
+	f.le_comandos();
 	
 	return 0;
 }

@@ -2,23 +2,30 @@
 #include <vector>
 #include "Caracteristica.h"
 #define MAX_PERFIS 5
-//#define ARRAY "perfil_%c_caracteristicas"
-///#define vector<int> "perfil_%c_caracteristicas";
 
 class Perfil {
-	int id;
+	//int id;
 	char id_perfil;
 	vector<Caracteristica> perfil;
 	vector<Perfil> perfis;
 
+	vector<Perfil>::iterator iter;
+	vector<Caracteristica>::iterator iter2;
+
 public:
 	Perfil(char id_perfil){
-		this->id = 0;
+		//this->id = -1;
 		this->id_perfil = id_perfil;
 	}
 
-	int incrementaIdPerfil() {
+	/*int incrementaIdPerfil() {
 		return id++;
+	}*/
+
+	int verificaNPerfis() {
+		if (perfis.size() < MAX_PERFIS)
+			return 0;
+		else return 1;
 	}
 
 	char getIDPerfil() {
@@ -39,11 +46,20 @@ public:
 		//Aqui teremos que usar os iteradores!!
 	}
 
+	void mostraPerfis() {
+		//vector<Perfil>::iterator iter;
+		for (iter = perfis.begin(); iter != perfis.end(); iter++)
+			cout << (*iter).toString() << endl;
+	}
 
-	//INCOMPLETO...
 	string toString() {
 		ostringstream os;
-		os << "Perfil" << id_perfil;// << ":\n" << "\tID: " << perfil[0].getID;// << ", Custo monetario: " << c_mon << ", Custo forca : " << c_for;
+		//vector<Caracteristica>::iterator iter;
+
+		os << "Perfil " << id_perfil << ":\n";
+		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++){
+			os << (*iter2).toString() << endl;
+		}
 		return os.str();
 	}
 

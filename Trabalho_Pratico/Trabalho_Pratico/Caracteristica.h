@@ -7,7 +7,7 @@ class Caracteristica {
 	string nome;
 	int id, c_mon, c_for;
 	Personagem efeito;
-	vector <Caracteristica *> perfil;
+	//vector <Caracteristica *> perfil;
 	int carac[14][3] = { { 1,1,0 },
 						{ 2,1,1 },
 						{ 3,2,2 },

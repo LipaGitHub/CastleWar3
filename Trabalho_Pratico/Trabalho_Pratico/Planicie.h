@@ -3,7 +3,7 @@
 #include <sstream>
 class planicie {
 	//existem colonias, seres e edificios
-	personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
+	Personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
 	int linha, coluna;
 public:
 	/*planicie(int l, int c) {

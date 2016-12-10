@@ -1,10 +1,14 @@
 #pragma once
-#include <sstream>
-
+#include "Personagem.h"
 using namespace std;
 
-class caracteristica {
+class Caracteristica {
 	string nome;
 	int id, c_mon, c_for;
+	Personagem efeito;
+public:
+	Caracteristica() {
+
+	}
 
 };

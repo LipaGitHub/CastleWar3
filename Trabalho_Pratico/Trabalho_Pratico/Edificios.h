@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class edificio: public personagem{
+class edificio: public Personagem{
 	//tem indicador
 	//Representados pela letra do perfil e cor da colonia
 	

@@ -1,5 +1,9 @@
 #include "Interface.h"
 #include "Planicie.h"
+#include "Config.h"
+#include "Perfil.h"
+#define TERMINA_PERFIL 15
+
 void Interface::menu() {
 
 	cout << endl;
@@ -14,19 +18,44 @@ void Interface::menu() {
 	cout << "|                                                     |" << endl;
 	cout << "-------------------------------------------------------" << endl;
 	cout << "Opcoes: \n"
-		<< "dim linha coluna                -Definde dimensoes da planicie\n"
-		<< "moedas numero                   -Define quant moedas iniciais\n"
-		<< "oponentes numero                -Define num colonias oponentes\n"
+		<< "dim linha coluna                -Define dimensoes da planicie\n"
+		<< "moedas numero                   -Define quant. moedas iniciais\n"
+		<< "oponentes numero                -Define num. colonias oponentes\n"
 		<< "castelo colonia lin col         -Define posi do castelo da colonia indicada\n"
 		<< "mkperfil letra                  -Define perfil por letra especificada\n"
-		<< "addperfil letra caracteristica  -Add caracteristica indicada ao perfil da letra\n"
+		<< "addperfil letra caracteristica  -Adiciona caracteristica indicada ao perfil da letra\n"
 		<< "subperfil letra caracteristica  -Remove caracteristica no perfil especificado\n"
 		<< "rmperfil letra                  -Abona o perfil especificado\n"
 		<< "load ficheiro                   -Carrega comandos no ficheiro\n"
 		<< "inicio                          -Fim Configuracao, passar simulacao\n"
 		<< endl;
+}
 
-
+void Interface::perfis() {
+	cout << "-------------------------------------------------------" << endl;
+	cout << "|                                                     |" << endl;
+	cout << "|               Criacao de perfil                     |" << endl;
+	cout << "|                                                     |" << endl;
+	cout << "-------------------------------------------------------" << endl;
+	cout << "Caracteristicas: \n"
+		<< "1-\tBandeira\n"
+		<< "2-\tSuperior\n"
+		<< "3-\tPele dura\n"
+		<< "4-\tArmadura\n"
+		<< "5-\tFaca\n"
+		<< "6-\tEspada\n"
+		<< "7-\tAgressao\n"
+		<< "8-\tEcologico\n"
+		<< "9-\tHeatSeeker\n"
+		<< "10-\tBuildSeeker\n"
+		<< "11-\tWalker\n"
+		<< "12-\tRemedio\n"
+		<< "13-\tSecondChance\n"
+		<< "14-\tAluno\n"
+		<< "\n"
+		<< "15-\tTerminar perfil?\n"
+		<< "\n\n"
+		<< "Escolha o ID para juntar ao perfil: ";
 }
 
 void Interface::le_comandos() {
@@ -41,32 +70,34 @@ void Interface::le_comandos() {
 		menu();
 		cout << "comando>";
 		getline(*entrada, linha);
-		res = intrepetaComando(linha);
-
+		res = interpretaComando(linha);
 	} while (res != "inicio");
 
 }
-string Interface::intrepetaComando(string linha) {
-	string comando;
 
+string Interface::interpretaComando(string linha) {
+	string comando;
 	stringstream iss(linha);
 	iss >> comando;
 	if (comando == "dim") {
 		int linha, coluna;
 		iss >> linha;
 		iss >> coluna;
-		cout << "Linha:" << linha << endl;
-		cout << "Coluna:" << coluna << endl;
+		info.setDim(linha, coluna);
+		//cout << "Linha:" << linha << endl;
+		//cout << "Coluna:" << coluna << endl;
 	}
 	if (comando == "moedas") {
 		int n;
 		iss >> n;
-		cout << "Moedas:" << n;
+		info.setMoedas(n);
+		//cout << "Moedas:" << n;
 	}
 	if (comando == "oponentes") {
 		int n;
 		iss >> n;
-		cout << "Oponentes:" << n;
+		info.setOponentes(n);
+		//cout << "Oponentes:" << n;
 	}
 	if (comando == "castelo") {
 		string colonia;
@@ -77,9 +108,20 @@ string Interface::intrepetaComando(string linha) {
 	}
 
 	if (comando == "mkperfil") {
-		string letra;
+		char letra;
+		int id;
 		iss >> letra;
-		cout << "Perfil com letra:" << letra;
+		//Guarda o perfil no vetor
+		perfil.adicionaPerfil(letra);
+		//cout << "Perfil com letra:" << letra;
+		do {
+			perfis();
+			cin >> id;
+			if (id != 15) {
+				//Guarda a caracteristica no vector
+				perfil.adicionaCaracteristica(perfil.incrementaIdPerfil(), id);
+			}
+		}while(id != TERMINA_PERFIL); //TERMINA_PERFIL corresponde à "terminação" da criação do perfil
 	}
 	if (comando == "addperfil") {
 		string l;
@@ -106,11 +148,7 @@ string Interface::intrepetaComando(string linha) {
 		comando = leFicheiro(nome);
 
 	}
-
-
-
 	return comando;
-
 }
 
 string Interface::leFicheiro(string nome) {
@@ -118,18 +156,14 @@ string Interface::leFicheiro(string nome) {
 
 	ifstream ifi(nome);
 	if (ifi.is_open() == false)
-		ifi.close();
+		cout << "Erro ao introduzir o nome do ficheiro!\n";
 
 	while (getline(ifi, linha)) {
-
-		res = intrepetaComando(linha);
-
-
+		res = interpretaComando(linha);
 	}
 
 	ifi.close();
 	return res;
-
 }
 
 Interface::Interface() {
@@ -141,4 +175,11 @@ Interface::Interface() {
 void Interface::inicializa() {
 	entrada = &cin;
 
+}
+
+string toString() {
+	ostringstream os;
+//	Config info;
+//	os << info.getDimLinhas << " " << info.getDimColunas;
+	return os.str();
 }

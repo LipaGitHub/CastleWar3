@@ -7,7 +7,7 @@ class colonia {
 	//Tem uma Letra que a representa
 	//Economia de moedas
 	
-	vector <personagem*> equipa;
+	vector <Personagem*> equipa;
 
 
 };

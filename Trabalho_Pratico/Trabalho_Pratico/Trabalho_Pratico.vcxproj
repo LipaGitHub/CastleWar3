@@ -148,12 +148,16 @@
   <ItemGroup>
     <ClInclude Include="Caracteristica.h" />
     <ClInclude Include="Colonia.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Edificios.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Perfil.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Planicie.h" />
     <ClInclude Include="Seres.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="perfis.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

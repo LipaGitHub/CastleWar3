@@ -8,48 +8,45 @@
 class Perfil {
 	int id;
 	char id_perfil;
-	int perfil_count;
-	//vector< vector<int> > array;
-	vector<char> perfil;
-	vector< vector<int> > caracteristicas;
+	vector<Caracteristica> perfil;
+	vector<Perfil> perfis;
 
 public:
-	Perfil(){
+	Perfil(char id_perfil){
 		this->id = 0;
-		this->id_perfil = ' ';
-		this->perfil_count = 0;
+		this->id_perfil = id_perfil;
 	}
 
 	int incrementaIdPerfil() {
 		return id++;
 	}
 
-	/*void setPerfil(char p) {
-		this->id_perfil = p;
-		this->perfil_count++;
-	}
-
-	char getPerfil() {
+	char getIDPerfil() {
 		return id_perfil;
-	}*/
-
-	void adicionaPerfil(char letra) {
-		perfil.push_back(letra);
 	}
 
-	void adicionaCaracteristica(int id, int id_caracteristica) {
-		/*char buffer[25];
-		sprintf(buffer, ARRAY, id_perfil);
-		(sprintf(buffer, "perfil_%c_caracteristicas", id_perfil)).push_back(id_caracteristica);
-		array.push_back(id_caracteristica);*/
-
-		//NAO ESTOU A CONSEGUIR ? :(
-		/*caracteristicas[id].push_back(id_caracteristica);
-		caracteristicas.at(id).push_back(id_caracteristica);*/
+	void adicionaCaracteristica(Caracteristica c) {
+		perfil.push_back(c);
 	}
 
-	//Contem uma identificação
-	//Contem uma quantidade de caracteristicas
+	void guardaPerfil(Perfil p) {
+		perfis.push_back(p);
+	}
+
+	//INCOMPLETO
+	void mostraPerfil(char letra) {
+		//Mostrar as carateristicas de um certo perfil
+		//Aqui teremos que usar os iteradores!!
+	}
+
+
+	//INCOMPLETO...
+	string toString() {
+		ostringstream os;
+		os << "Perfil" << id_perfil;// << ":\n" << "\tID: " << perfil[0].getID;// << ", Custo monetario: " << c_mon << ", Custo forca : " << c_for;
+		return os.str();
+	}
+
 	/*
 	PERFIS
 	---------

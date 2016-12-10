@@ -38,15 +38,15 @@ void Interface::perfis() {
 	cout << "|                                                     |" << endl;
 	cout << "-------------------------------------------------------" << endl;
 	cout << "Caracteristicas: \n"
-		<< "1-\tBandeira\n"
-		<< "2-\tSuperior\n"
-		<< "3-\tPele dura\n"
-		<< "4-\tArmadura\n"
-		<< "5-\tFaca\n"
-		<< "6-\tEspada\n"
-		<< "7-\tAgressao\n"
-		<< "8-\tEcologico\n"
-		<< "9-\tHeatSeeker\n"
+		<< " 1-\tBandeira\n"
+		<< " 2-\tSuperior\n"
+		<< " 3-\tPele dura\n"
+		<< " 4-\tArmadura\n"
+		<< " 5-\tFaca\n"
+		<< " 6-\tEspada\n"
+		<< " 7-\tAgressao\n"
+		<< " 8-\tEcologico\n"
+		<< " 9-\tHeatSeeker\n"
 		<< "10-\tBuildSeeker\n"
 		<< "11-\tWalker\n"
 		<< "12-\tRemedio\n"
@@ -111,17 +111,22 @@ string Interface::interpretaComando(string linha) {
 		char letra;
 		int id;
 		iss >> letra;
-		//Guarda o perfil no vetor
-		perfil.adicionaPerfil(letra);
-		//cout << "Perfil com letra:" << letra;
+		Perfil p(letra);
+		p.incrementaIdPerfil();
 		do {
 			perfis();
 			cin >> id;
 			if (id != 15) {
-				//Guarda a caracteristica no vector
-				perfil.adicionaCaracteristica(perfil.incrementaIdPerfil(), id);
+				//Criação de uma caracteristica
+				Caracteristica car(id);
+				//Adiciona a caracteristica criada no vetor do perfil
+				p.adicionaCaracteristica(car);
+
 			}
 		}while(id != TERMINA_PERFIL); //TERMINA_PERFIL corresponde à "terminação" da criação do perfil
+		cout << p.toString();
+		//Guarda o perfil criado num vector Perfis
+		p.guardaPerfil(p);
 	}
 	if (comando == "addperfil") {
 		string l;

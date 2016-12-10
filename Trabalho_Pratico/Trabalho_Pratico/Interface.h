@@ -14,7 +14,6 @@ class Interface {
 	istream * entrada;
 	vector <string> comandos;
 	Config info;
-	Perfil perfil;
 public:
 	Interface();
 	void le_comandos();

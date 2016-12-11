@@ -14,6 +14,7 @@ class Interface {
 	istream * entrada;
 	vector <string> comandos;
 	Config info;
+
 public:
 	Interface();
 	void le_comandos();

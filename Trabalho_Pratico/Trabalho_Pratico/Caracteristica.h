@@ -7,7 +7,10 @@ class Caracteristica {
 	string nome;
 	int id, c_mon, c_for;
 	Personagem efeito;
-	//vector <Caracteristica *> perfil;
+	string nomes[14] = { {"Bandeira"}, { "Superior" },{ "Pele dura" },{ "Armadura" },{ "Faca" },{ "Espada" },
+						{ "Agressao" },{ "Ecologico" },{ "HeatSeeker" },{ "BuildSeeker" },{ "Walker" },{ "Remedio" },
+						{ "SecondChance" },{ "Aluno" } };
+
 	int carac[14][3] = { { 1,1,0 },
 						{ 2,1,1 },
 						{ 3,2,2 },
@@ -25,12 +28,13 @@ class Caracteristica {
 						};
 public:
 	Caracteristica(int id) {
+		this->nome = nomes[id-1];
 		this->id = id;
 		this->c_mon = carac[id-1][1];
 		this->c_for = carac[id-1][2];
 	}
 
-	int getID() {
+	int getIdCaracteristica() {
 		return id;
 	}
 

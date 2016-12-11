@@ -109,16 +109,17 @@ string Interface::interpretaComando(string linha) {
 
 	if (comando == "mkperfil") {
 		char letra;
-		int id, possivel = 0;
 		iss >> letra;
-		Perfil p(letra);
-
+		
 		if (info.getNPerfil() >= MAX_PERFIS) {
 			cout << "Ja foram criados os 5 Perfis!\n";
 		}
 		else {
-			info.adicionaPerfil();
-			do {
+			info.adicionaNPerfil();
+			Perfil p(letra);
+			Perfil::criaPerfil(&p); //Põe o Perfil no vetor Perfis
+			cout << "Perfil " << letra << " criado c/ sucesso!\n";
+			/*do {
 				perfis();
 				cin >> id;
 				if (id != 15) {
@@ -131,27 +132,32 @@ string Interface::interpretaComando(string linha) {
 			//Guarda o perfil criado num vector Perfis
 			p.guardaPerfil(p);
 			//Mostra perfis
-			p.mostraPerfis();
+			p.mostraPerfis();*/
 		}
 	}
 	if (comando == "addperfil") {
-		string l;
+		char l;
 		int c;
 		iss >> l;
 		iss >> c;
-		cout << "Adicionar a " << l << "caracteristica" << c;
+
+		adicionaCaracteristicaNoPerfil(l, c);
+		//cout << "Adicionar a " << l << "caracteristica" << c;
 	}
 	if (comando == "subperfil") {
 		string l;
 		int c;
 		iss >> l;
 		iss >> c;
-		cout << "Remove a " << l << " a caracteristica" << c;
+
+		removeCaracteristicaNoPerfil(l, c);
+		//cout << "Remove a " << l << " a caracteristica" << c;
 	}
 	if (comando == "rmperfil") {
 		string l;
 		iss >> l;
 		cout << "Abandonar perfil:" << l;
+		removePerfil(l);
 	}
 	if (comando == "load") {
 		string nome;

@@ -1,22 +1,41 @@
 #pragma once
 #include "Personagem.h"
+#include "Perfil.h"
 #include <sstream>
-class planicie {
+class Planicie {
+	vector<Perfil *> perfis;
+	vector<Perfil *>::iterator iter;
 	//existem colonias, seres e edificios
 	Personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
-	int linha, coluna;
+	const int linha, coluna;
 public:
-	/*planicie(int l, int c) {
-		this->linha = l;
-		this->coluna = c;
-		mapa = new personagem **[l] ;
-		for (int i = 0; i < l; i++) {
-			mapa[i] = new personagem *[c];
+	Planicie( const int l, const int c):linha(l),coluna(c) {
+		this->perfis = vector<Perfil *>();
+		criaMapa();
+	}
+
+	int getLinha() {
+		return linha;
+	}
+
+	int getColuna() {
+		return coluna;
+	}
+
+	vector<Perfil *> retornaPerfis() {
+		return perfis;
+	}
+
+	void criaMapa() {
+		mapa = new Personagem **[getLinha()];
+		for (int i = 0; i < getLinha(); i++) {
+			mapa[i] = new Personagem *[getColuna()];
 		}
-		for (int i = 0; i < l; i++)
-			for (int j = 0; j < c; j++)
+		for (int i = 0; i < getLinha(); i++)
+			for (int j = 0; j < getColuna(); j++)
 				mapa[i][j] = NULL;
 	}
+
 	string toString()const {
 		ostringstream os;
 		for (int i = 0; i < linha; i++) {
@@ -26,10 +45,31 @@ public:
 		}
 		return os.str();
 	}
+
+	void criaPerfil(char letra) {
+		perfis.push_back(new Perfil(letra));
+	}
+
+	void removePerfil(char letra) {
+		for (iter = perfis.begin(); iter != perfis.end(); iter++) {
+			if ((*iter)->getIDPerfil() == letra) {
+				iter = perfis.erase(iter);
+				break;
+			}
+		}
+	}
+	
+	Perfil * procuraPerfil(char letra) {
+		for (iter = perfis.begin(); iter != perfis.end(); iter++) {
+			if ((*iter)->getIDPerfil() == letra) {
+				return *iter;
+			}
+		}
+		return nullptr;
+	}
 };
-ostream &operator <<(ostream &o, const planicie &p) {
+
+/*ostream &operator <<(ostream &o, const Planicie &p) {
 	o << p.toString();
 	return o;
-}
-*/
-};
+}*/

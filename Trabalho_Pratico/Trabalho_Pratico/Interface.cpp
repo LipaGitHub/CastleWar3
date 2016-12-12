@@ -79,13 +79,17 @@ string Interface::interpretaComando(string linha) {
 	string comando;
 	stringstream iss(linha);
 	iss >> comando;
+
 	if (comando == "dim") {
-		int linha, coluna;
-		iss >> linha;
-		iss >> coluna;
-		info.setDim(linha, coluna);
-		//cout << "Linha:" << linha << endl;
-		//cout << "Coluna:" << coluna << endl;
+		if (p==nullptr) {
+			int linha, coluna;
+			iss >> linha;
+			iss >> coluna;
+			info.setDim(linha, coluna);
+			//cout << "Linha:" << linha << endl;
+			//cout << "Coluna:" << coluna << endl;
+		}
+		else { cout << "Planicie ja criada!\n"; le_comandos(); }
 	}
 	if (comando == "moedas") {
 		int n;
@@ -116,8 +120,7 @@ string Interface::interpretaComando(string linha) {
 		}
 		else {
 			info.adicionaNPerfil();
-			Perfil p(letra);
-			Perfil::criaPerfil(&p); //Põe o Perfil no vetor Perfis
+			p->criaPerfil(letra); //Põe o Perfil no vetor Perfis
 			cout << "Perfil " << letra << " criado c/ sucesso!\n";
 			/*do {
 				perfis();
@@ -140,24 +143,31 @@ string Interface::interpretaComando(string linha) {
 		int c;
 		iss >> l;
 		iss >> c;
+		Perfil *aux;
 
-		adicionaCaracteristicaNoPerfil(l, c);
-		//cout << "Adicionar a " << l << "caracteristica" << c;
+		aux = p->procuraPerfil(l);
+		aux->adicionaCaracteristicaNoPerfil(c);
+		cout << "Adicionar a " << l << "caracteristica" << c;
 	}
 	if (comando == "subperfil") {
-		string l;
+		char l;
 		int c;
 		iss >> l;
 		iss >> c;
+		Perfil *aux;
 
-		removeCaracteristicaNoPerfil(l, c);
-		//cout << "Remove a " << l << " a caracteristica" << c;
+		aux = p->procuraPerfil(l);
+		aux->removeCaracteristicaNoPerfil(c);
+		cout << "Remove a " << l << " a caracteristica" << c;
 	}
 	if (comando == "rmperfil") {
-		string l;
+		char l;
 		iss >> l;
 		cout << "Abandonar perfil:" << l;
-		removePerfil(l);
+		Perfil *aux;
+
+		aux = p->procuraPerfil(l);
+		aux->~Perfil();
 	}
 	if (comando == "load") {
 		string nome;
@@ -186,6 +196,7 @@ string Interface::leFicheiro(string nome) {
 Interface::Interface() {
 	comandos = { "dim", "moedas","oponentes","castelo","mkperfil","addperfil","subperfil","rmperfil","inicio" };
 	inicializa();
+	p = nullptr;
 
 }
 

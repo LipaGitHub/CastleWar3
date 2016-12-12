@@ -1,4 +1,6 @@
 #pragma once
+#ifndef INTERFACE_H
+#define INTERFACE_H
 #include <vector>
 #include <iostream>
 #include <string>
@@ -9,11 +11,12 @@
 #include "Config.h"
 #include "Perfil.h"
 using namespace std;
-
+class Planicie;
 class Interface {
 	istream * entrada;
 	vector <string> comandos;
 	Config info;
+	Planicie * p;
 
 public:
 	Interface();
@@ -24,3 +27,5 @@ public:
 	string leFicheiro(string nome);
 	string interpretaComando(string linha);
 };
+
+#endif

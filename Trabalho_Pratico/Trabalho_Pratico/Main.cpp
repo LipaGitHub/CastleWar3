@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
 	Interface f;
+	
 	//Fase da Configuração
 	f.le_comandos();
 

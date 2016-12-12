@@ -21,7 +21,10 @@ public:
 	}
 
 	void removeCaracteristicaNoPerfil(int id) {
-
+		for(auto c : perfil)
+			if (this->getIDPerfil() == id) {
+				perfil.erase(c);
+			}
 	}
 
 	~Perfil() {

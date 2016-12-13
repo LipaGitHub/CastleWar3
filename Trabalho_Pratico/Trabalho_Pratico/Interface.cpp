@@ -79,17 +79,24 @@ string Interface::interpretaComando(string linha) {
 	string comando;
 	stringstream iss(linha);
 	iss >> comando;
-
+	
 	if (comando == "dim") {
+		
 		if (p==nullptr) {
 			int linha, coluna;
 			iss >> linha;
 			iss >> coluna;
-			info.setDim(linha, coluna);
+			p = new Planicie(linha,coluna);
+			
+			//info.setDim(linha, coluna);
 			//cout << "Linha:" << linha << endl;
 			//cout << "Coluna:" << coluna << endl;
 		}
-		else { cout << "Planicie ja criada!\n"; le_comandos(); }
+		else { cout << "Planicie ja criada!\n"; 
+		system("pause");
+		le_comandos();
+		}
+		
 	}
 	if (comando == "moedas") {
 		int n;
@@ -202,7 +209,7 @@ Interface::Interface() {
 
 void Interface::inicializa() {
 	entrada = &cin;
-
+	
 }
 
 string toString() {

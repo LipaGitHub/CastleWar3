@@ -21,9 +21,10 @@ public:
 	}
 
 	void removeCaracteristicaNoPerfil(int id) {
-		for(auto c : perfil)
-			if (this->getIDPerfil() == id) {
-				perfil.erase(c);
+		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++)
+			if ((*iter2)->getIdCaracteristica() == id) {
+				perfil.erase(iter2);
+				break;
 			}
 	}
 

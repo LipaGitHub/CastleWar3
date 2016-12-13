@@ -10,7 +10,7 @@ class Planicie {
 	const int linha, coluna;
 public:
 	Planicie( const int l, const int c):linha(l),coluna(c) {
-		this->perfis = vector<Perfil *>();
+		//this->perfis = vector<Perfil *>();
 		criaMapa();
 	}
 

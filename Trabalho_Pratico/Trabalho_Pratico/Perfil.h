@@ -18,16 +18,28 @@ public:
 
 	void adicionaCaracteristicaNoPerfil(int id) {
 		perfil.push_back(new Caracteristica(id)); //Guarda caracteristica no respetivo Perfil
+		for (int i = 0; i < perfil.size(); i++)
+			cout << perfil[i]->getIdCaracteristica();
 	}
 
 	void removeCaracteristicaNoPerfil(int id) {
-		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++)
+		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++){
 			if ((*iter2)->getIdCaracteristica() == id) {
 				perfil.erase(iter2);
-				break;
-			}
-	}
 
+			}
+		break;
+	}
+		cout << "A caracteristica nao existe neste perfil.\n";
+	}
+	bool procuraCarPerfil(int id) {
+		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++) {
+			if ((*iter2)->getIdCaracteristica() == id)
+				return true;
+		}
+		return false;
+
+	}
 	~Perfil() {
 		for (auto c : perfil)
 			delete c;
@@ -71,7 +83,6 @@ public:
 	/*string toString() {
 		ostringstream os;
 		//vector<Caracteristica>::iterator iter;
-
 		os << "Perfil " << id_perfil << ":\n";
 		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++){
 			os << (*iter2).toString() << endl;

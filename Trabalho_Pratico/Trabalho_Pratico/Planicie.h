@@ -8,8 +8,9 @@ class Planicie {
 	//existem colonias, seres e edificios
 	Personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
 	const int linha, coluna;
+	int moedas;
 public:
-	Planicie( const int l, const int c):linha(l),coluna(c) {
+	Planicie( const int l, const int c, int m=0):linha(l),coluna(c),moedas(m)  {
 		//this->perfis = vector<Perfil *>();
 		criaMapa();
 	}
@@ -21,7 +22,9 @@ public:
 	int getColuna() {
 		return coluna;
 	}
-
+	void setMoedas(int m){
+		this->moedas = m;
+	}
 	vector<Perfil *> retornaPerfis() {
 		return perfis;
 	}

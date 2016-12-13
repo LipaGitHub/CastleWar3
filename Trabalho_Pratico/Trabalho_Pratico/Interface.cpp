@@ -102,7 +102,7 @@ string Interface::interpretaComando(string linha) {
 		if(p!=nullptr){
 			int n;
 			iss >> n;
-			info.setMoedas(n);
+			p->setMoedas(n);
 			//cout << "Moedas:" << n;
 		}
 		else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }

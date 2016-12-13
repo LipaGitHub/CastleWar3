@@ -17,6 +17,7 @@ class Interface {
 	vector <string> comandos;
 	Config info;
 	Planicie * p;
+	
 
 public:
 	Interface();
@@ -26,6 +27,7 @@ public:
 	void inicializa();
 	string leFicheiro(string nome);
 	string interpretaComando(string linha);
+	
 };
 
 #endif

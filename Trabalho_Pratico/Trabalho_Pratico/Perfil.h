@@ -4,7 +4,7 @@
 #include "Planicie.h"
 #include "Caracteristica.h"
 #define MAX_PERFIS 5
-
+using namespace std;
 class Perfil {
 	char id_perfil;
 	vector<Caracteristica *> caract;

@@ -12,8 +12,11 @@ class Perfil {
 
 public:
 	Perfil(char id_perfil){
+		cout << "oi3";
 		this->id_perfil = id_perfil;
+		cout << "oi4";
 		this->perfil = vector<Caracteristica *>(); //Faz com que o vector esteja a zero/null
+		cout << "oi5";
 	}
 
 	void adicionaCaracteristicaNoPerfil(int id) {
@@ -21,10 +24,7 @@ public:
 	}
 
 	void removeCaracteristicaNoPerfil(int id) {
-		for(auto c : perfil)
-			if (this->getIDPerfil() == id) {
-				perfil.erase(c);
-			}
+
 	}
 
 	~Perfil() {

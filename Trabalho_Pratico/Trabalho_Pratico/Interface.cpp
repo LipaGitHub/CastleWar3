@@ -85,7 +85,8 @@ string Interface::interpretaComando(string linha) {
 			int linha, coluna;
 			iss >> linha;
 			iss >> coluna;
-			info.setDim(linha, coluna);
+			//info.setDim(linha, coluna);
+			Planicie p(linha, coluna);
 			//cout << "Linha:" << linha << endl;
 			//cout << "Coluna:" << coluna << endl;
 		}
@@ -122,20 +123,6 @@ string Interface::interpretaComando(string linha) {
 			info.adicionaNPerfil();
 			p->criaPerfil(letra); //Põe o Perfil no vetor Perfis
 			cout << "Perfil " << letra << " criado c/ sucesso!\n";
-			/*do {
-				perfis();
-				cin >> id;
-				if (id != 15) {
-					//Criação de uma caracteristica
-					Caracteristica car(id);
-					//Adiciona a caracteristica criada no vetor do perfil
-					p.adicionaCaracteristica(car);
-				}
-			} while (id != TERMINA_PERFIL); //TERMINA_PERFIL corresponde à "terminação" da criação do perfil
-			//Guarda o perfil criado num vector Perfis
-			p.guardaPerfil(p);
-			//Mostra perfis
-			p.mostraPerfis();*/
 		}
 	}
 	if (comando == "addperfil") {

@@ -34,6 +34,12 @@ public:
 		for (int i = 0; i < getLinha(); i++)
 			for (int j = 0; j < getColuna(); j++)
 				mapa[i][j] = NULL;
+
+		for (int i = 0; i < getLinha(); i++) {
+			for (int j = 0; j < getColuna(); j++)
+				cout << '*';
+			cout << "\n";
+		}
 	}
 
 	string toString()const {
@@ -47,7 +53,10 @@ public:
 	}
 
 	void criaPerfil(char letra) {
+		cout << "oi";
+		//Perfil p(letra);
 		perfis.push_back(new Perfil(letra));
+		cout << "oi2";
 	}
 
 	void removePerfil(char letra) {

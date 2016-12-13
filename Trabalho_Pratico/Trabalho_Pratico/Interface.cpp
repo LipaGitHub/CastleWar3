@@ -70,7 +70,9 @@ void Interface::le_comandos() {
 		menu();
 		cout << "comando>";
 		getline(*entrada, linha);
+		system("cls");
 		res = interpretaComando(linha);
+		
 	} while (res != "inicio");
 
 }
@@ -167,7 +169,7 @@ string Interface::interpretaComando(string linha) {
 			aux = p->procuraPerfil(l);
 			if (aux != nullptr) {
 				aux->adicionaCaracteristicaNoPerfil(c);
-				cout << "Adicionar a " << l << "caracteristica" << c;
+				cout << "Adicionar a " << l << "caracteristica" << c << "\n";
 			}
 			else { cout << "Perfil inserido nao existe!\n"; }
 		}
@@ -180,19 +182,23 @@ string Interface::interpretaComando(string linha) {
 			int c;
 			iss >> l;
 			iss >> c;
+			
 			Perfil *aux;
 			aux = p->procuraPerfil(l);
-			
+			aux->mostraPerfil();
 			if (aux != nullptr ) {
 				if ((res = aux->procuraCarPerfil(c)) == true) {
 					aux->removeCaracteristicaNoPerfil(c);
-					cout << "Remove a " << l << " a caracteristica" << c;
+					cout << "Remove a " << l << " a caracteristica" << c << "\n";
 				}
 				else { cout << "Nao existe a Caracteristica no perfil encontrado.\n"; }
 			}
 			else { cout << "Insira um Perfil valido!\n"; }
+			cout << "\n";
+			aux->mostraPerfil();
 		}
 		else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+		
 	}
 	if (comando == "rmperfil") {
 		if (p != nullptr) {
@@ -203,8 +209,9 @@ string Interface::interpretaComando(string linha) {
 			aux = p->procuraPerfil(l);
 			if (aux != nullptr) {
 				aux->~Perfil();
-			}
-			else { cout << "Não é possivel Sair de um Perfil que não existe!\n"; }
+				p->removePerfil(l);
+				cout << "Removido Perfil com Sucesso!\n";
+			}else { cout << "Não é possivel Sair de um Perfil que não existe!\n"; }
 		}
 		else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
 	}

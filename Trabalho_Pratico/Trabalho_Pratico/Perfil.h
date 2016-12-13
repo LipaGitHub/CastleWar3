@@ -7,33 +7,28 @@
 
 class Perfil {
 	char id_perfil;
-	vector<Caracteristica *> perfil;
+	vector<Caracteristica *> Pcaract;
 	vector<Caracteristica *>::iterator iter2;
 
 public:
 	Perfil(char id_perfil){
 		this->id_perfil = id_perfil;
-		this->perfil = vector<Caracteristica *>(); //Faz com que o vector esteja a zero/null
+		this->Pcaract = vector<Caracteristica *>(); //Faz com que o vector esteja a zero/null
 	}
 
 	void adicionaCaracteristicaNoPerfil(int id) {
-		perfil.push_back(new Caracteristica(id)); //Guarda caracteristica no respetivo Perfil
-		for (int i = 0; i < perfil.size(); i++)
-			cout << perfil[i]->getIdCaracteristica();
+		Pcaract.push_back(new Caracteristica(id)); //Guarda caracteristica no respetivo Perfil
+		
 	}
 
 	void removeCaracteristicaNoPerfil(int id) {
-		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++){
-			if ((*iter2)->getIdCaracteristica() == id) {
-				perfil.erase(iter2);
+		Pcaract.erase(iter2);
+		cout << "Encontrei \n";
+		
+	}
 
-			}
-		break;
-	}
-		cout << "A caracteristica nao existe neste perfil.\n";
-	}
 	bool procuraCarPerfil(int id) {
-		for (iter2 = perfil.begin(); iter2 != perfil.end(); iter2++) {
+		for (iter2 = Pcaract.begin(); iter2 != Pcaract.end(); iter2++) {
 			if ((*iter2)->getIdCaracteristica() == id)
 				return true;
 		}
@@ -41,9 +36,9 @@ public:
 
 	}
 	~Perfil() {
-		for (auto c : perfil)
+		for (auto c : Pcaract)
 			delete c;
-		perfil.clear();
+		Pcaract.clear();
 	}
 
 	/*int incrementaIdPerfil() {
@@ -69,9 +64,11 @@ public:
 	}*/
 
 	//INCOMPLETO
-	void mostraPerfil(char letra) {
+	void mostraPerfil() {
 		//Mostrar as carateristicas de um certo perfil
 		//Aqui teremos que usar os iteradores!!
+		for (int i = 0; i < Pcaract.size(); i++)
+			cout << Pcaract[i]->getIdCaracteristica()<<"\n";
 	}
 
 	/*void mostraPerfis() {

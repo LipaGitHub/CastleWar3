@@ -1,2 +1,10 @@
 dim 10 10
-inicio
+mkperfil A
+mkperfil B
+mkperfil C
+addperfil A 1
+addperfil A 5
+addperfil A 3
+addperfil B 6
+addperfil B 1
+addperfil C 1

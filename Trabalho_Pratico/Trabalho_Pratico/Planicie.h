@@ -54,12 +54,8 @@ public:
 	}
 
 	void removePerfil(char letra) {
-		for (iter = perfis.begin(); iter != perfis.end(); iter++) {
-			if ((*iter)->getIDPerfil() == letra) {
-				iter = perfis.erase(iter);
-				break;
-			}
-		}
+		 perfis.erase(iter);
+	
 	}
 	
 	Perfil * procuraPerfil(char letra) {

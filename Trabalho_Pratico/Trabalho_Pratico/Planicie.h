@@ -1,16 +1,18 @@
 #pragma once
 #include "Personagem.h"
 #include "Perfil.h"
+#include "Colonia.h"
 #include <sstream>
 class Planicie {
 	vector<Perfil *> perfis;
 	vector<Perfil *>::iterator iter;
+	vector<Colonia *> colonias;
 	//existem colonias, seres e edificios
 	Personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
 	const int linha, coluna;
-	int moedas;
+	int moedas,oponentes;
 public:
-	Planicie( const int l, const int c, int m=0):linha(l),coluna(c),moedas(m)  {
+	Planicie( const int l, const int c, int m=0, int o=1):linha(l),coluna(c),moedas(m), oponentes(o) {
 		//this->perfis = vector<Perfil *>();
 		criaMapa();
 	}
@@ -24,6 +26,9 @@ public:
 	}
 	void setMoedas(int m){
 		this->moedas = m;
+	}
+	void setOponentes(int opo) {
+		this->oponentes = opo;
 	}
 	vector<Perfil *> retornaPerfis() {
 		return perfis;
@@ -56,6 +61,11 @@ public:
 	void removePerfil(char letra) {
 		 perfis.erase(iter);
 	
+	}
+	void criaColonia(int op) {
+		int valor = op + 1;
+		for (int i = 0, char abc='a'; i < valor; i++,abc++)
+			colonias.push_back(new Colonia(abc));
 	}
 	
 	Perfil * procuraPerfil(char letra) {

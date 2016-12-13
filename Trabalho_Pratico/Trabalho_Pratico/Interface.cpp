@@ -113,7 +113,8 @@ string Interface::interpretaComando(string linha) {
 		if (p != nullptr) {
 			int n;
 			iss >> n;
-			info.setOponentes(n);
+			p->criaColonia(n);
+			p->setOponentes(n);
 			//cout << "Oponentes:" << n;
 		}
 		else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }

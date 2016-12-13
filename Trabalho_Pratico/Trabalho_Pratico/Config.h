@@ -26,9 +26,7 @@ public:
 	int getOponentes() {
 		return oponentes;
 	}
-	void setOponentes(int oponentes) {
-		this->oponentes = oponentes;
-	}
+	
 	int adicionaNPerfil() {
 		return ++n_perfis;
 	}

@@ -22,6 +22,7 @@ public:
 	void le_comandos();
 	void menu();
 	void perfis();
+	void simulacao();
 	void inicializa();
 	string leFicheiro(string nome);
 	string interpretaComando(string linha);

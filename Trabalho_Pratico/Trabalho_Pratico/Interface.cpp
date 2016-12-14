@@ -63,6 +63,38 @@ void Interface::perfis() {
 		<< "Escolha o ID para juntar ao perfil: ";
 }
 
+void Interface::simulacao() {
+	cout << "-------------------------------------------------------" << endl;
+	cout << "|                                                     |" << endl;
+	cout << "|				   Comandos da simulacao               |" << endl;
+	cout << "|                                                     |" << endl;
+	cout << "-------------------------------------------------------" << endl;
+	cout << "Comandos possiveis: \n"
+		<< "\tfoco linha coluna               -Define o foco\n"
+		<< "\tzoomout n                       -Define o efeito zoom-out\n"
+		<< "\tsetmoedas colonias num          -Adiciona ou retira num moedas a colonia (debug)\n"
+		<< "\tbuild edif lin col              -Constroi edificio nas coordenadas lin col respeitando os custos\n"
+		<< "\tlist colonia                    -Apresenta uma lista com tudo sobre a colonia\n"
+		<< "\tlistp perfil                    -Apresenta os detalhes do perfil\n"
+		<< "\tlistallp                        -Apresenta os perfis para o jogador e computador\n"
+		<< "\tmkbuild edif lin col colonia    -Adiciona edificio na lin col da colonia (debug)\n"
+		<< "\trepair EID                      -Repara o edificio com o EID\n"
+		<< "\tupgrade EID                     -Melhora o edificio com o EID\n"
+		<< "\tsell EID                        -Vende o edificio com o EID\n"
+		<< "\tser num perf                    -Cria num de seres com o respetivo perfil\n"
+		<< "\tnext                            -Avanca um instante\n"
+		<< "\tnextn num                       -Avanca n instantes\n"
+		<< "\tataca                           -Actuar as suas caracteristicas\n"
+		<< "\trecolhe                         -Recolher os seres ao castelo\n"
+		<< "\tfim                             -Termina a simulacao\n"
+		<< "\tsave nome                       -Faz copia da simulacao\n"
+		<< "\trestore nome                    -Repoe em accao a copia\n"
+		<< "\terase nome                      -Elimina a copia indicada\n"
+		<< "\tload ficheiro                   -Carrega os comandos de simulacao do ficheiro indicado\n"
+		<< "\n\n"
+		<< "comando>";
+}
+
 void Interface::le_comandos() {
 	string linha;
 	string res, args;

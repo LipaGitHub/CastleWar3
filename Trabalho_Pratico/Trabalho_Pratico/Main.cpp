@@ -37,7 +37,10 @@ int main() {
 	//Impressão Mapa
 	f.Mapa();
 	//Fase da Simulação
-	cout << "Fase da Simulacao...";
+	cout << "\n";
+	cout << "Fase da Simulacao..." << endl;
+	f.le_comandosSim();
+	
 
 	return 0;
 }

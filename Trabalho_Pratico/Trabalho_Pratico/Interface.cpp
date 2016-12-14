@@ -8,8 +8,6 @@
 #define TERMINA_PERFIL 15
 
 void Interface::menu() {
-
-	
 	Consola::gotoxy(10, 11);
 	cout << "-------------------------------------------------------" << endl;
 	Consola::gotoxy(10, 12);
@@ -64,11 +62,18 @@ void Interface::perfis() {
 }
 
 void Interface::simulacao() {
+	cout << "\n";
+	Consola::gotoxy(10, 11);
 	cout << "-------------------------------------------------------" << endl;
+	Consola::gotoxy(10, 12);
 	cout << "|                                                     |" << endl;
-	cout << "|				   Comandos da simulacao               |" << endl;
+	Consola::gotoxy(10, 13);
+	cout << "|               Comandos da Simulacao:                |" << endl;
+	Consola::gotoxy(10, 14);
 	cout << "|                                                     |" << endl;
+	Consola::gotoxy(10, 15);
 	cout << "-------------------------------------------------------" << endl;
+	cout << "\n";
 	cout << "Comandos possiveis: \n"
 		<< "\tfoco linha coluna               -Define o foco\n"
 		<< "\tzoomout n                       -Define o efeito zoom-out\n"
@@ -92,7 +97,7 @@ void Interface::simulacao() {
 		<< "\terase nome                      -Elimina a copia indicada\n"
 		<< "\tload ficheiro                   -Carrega os comandos de simulacao do ficheiro indicado\n"
 		<< "\n\n"
-		<< "comando>";
+		<< endl;
 }
 
 void Interface::le_comandos() {
@@ -112,7 +117,30 @@ void Interface::le_comandos() {
 		
 	} while (res != "inicio");
 
+
 }
+
+void Interface::le_comandosSim() {
+	string linha;
+	string res, args;
+	bool nao_existe;
+	nao_existe = true;
+
+	system("cls");
+
+	do {
+		simulacao();
+		cout << "comando>";
+		getline(*entrada, linha);
+		system("cls");
+		res = interpretaComandoSim(linha);
+
+	} while (res != "inicio");
+
+
+}
+
+
 bool Interface::verificaComando(string comando){
 	for (auto c: comandos) {
 		if (c == comando)
@@ -276,6 +304,10 @@ else { cout << "Comando nao existe !\n"; }
 	
 }
 
+string Interface::interpretaComandoSim(string linha) {
+
+	return linha;
+}
 string Interface::leFicheiro(string nome) {
 	string linha, res;
 

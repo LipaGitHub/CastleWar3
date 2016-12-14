@@ -69,7 +69,6 @@ public:
 	void criaColonia(int op) {
 		Colonia * colonia;
 		char abc = 'a';
-		
 		int valor = op + 1;
 		for (int i = 0; i < valor; i++, abc++) {
 			int l = rand() % getLinha();

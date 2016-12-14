@@ -304,6 +304,5 @@ void Interface::inicializa() {
 }
 
 void Interface::Mapa() {
-	cout << "ola";
 	p->imprimeMapa();
 }

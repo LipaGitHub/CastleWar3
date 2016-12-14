@@ -103,13 +103,14 @@ public:
 			mapa[l][c] = cas;
 	}
 	void imprimeMapa() {
-		Colonia * colonia;
+		//Colonia * colonia;
 		for (int i = 0; i < getLinha(); i++) {
 			for (int j = 0; j < getColuna(); j++) {
 				if (mapa[i][j] != NULL)
-					cout << mapa[i][j]->getNome();
+
+					cout << mapa[i][j]->getID();
 				else
-					cout <<" ";
+					cout << "X";
 			}
 			cout << "\n";
 		}

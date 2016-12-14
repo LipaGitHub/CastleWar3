@@ -9,35 +9,33 @@ class Colonia;
 class Edificio: public Personagem{
 	//tem indicador
 	//Representados pela letra do perfil e cor da colonia
-	
 	Colonia* id_colonia;
 	string nome;
+	char id_e;
 public:
-	Edificio(string n, int c, int s , int d) : Personagem(c,s,d){
+	Edificio(string n, char id_e, int c, int s , int d) : Personagem(id_e,c,s,d){
 		this->nome = n;
-		//this->id_edificio = id;
+		this->id_e = nome[0];
 	}
-	//Personagem* efeito();
-	 virtual char getNome();
+
+	/*char getIdEdificio() { //Pode vir a ser necessario mas por enquanto nao
+		return id_e;
+	}*/
 
 };
 
 class Castelo: public Edificio{
 
 public:
-	Castelo() :Edificio("Castelo",0, 50, 10) {}
-	virtual char getNome(){
-		return 'c';
-	}
-	
+	Castelo() :Edificio("Castelo",'C',0, 50, 10) {}
 };
 
 class Quinta :public Edificio {
 public:
-	Quinta() :Edificio("Quinta",30,20,10) {}
+	Quinta() :Edificio("Quinta",'Q',30,20,10) {}
 };
 
 class Torre : public Edificio {
 public:
-	Torre() :Edificio("Torre",20,20,10){}
+	Torre() :Edificio("Torre",'T',20,20,10){}
 };

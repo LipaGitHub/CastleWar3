@@ -68,7 +68,7 @@ public:
 		//Mostrar as carateristicas de um certo perfil
 		//Aqui teremos que usar os iteradores!!
 		for (int i = 0; i < Pcaract.size(); i++)
-			cout << Pcaract[i]->getIdCaracteristica()<<"\n";
+			cout << Pcaract[i]->getIdCaracteristica() << "\n";
 	}
 
 	/*void mostraPerfis() {

@@ -1,22 +1,37 @@
 #pragma once
 //#include "Seres.h"
+//#include "Edificios.h"
 using namespace std;
 
 class Personagem {
-	int id_personagem;
+	char id_personagem;
 	int saude, defesa, custo;
 public:
 	//Efeitos das caracteristicas, ex.
 	/*void efeito_2(Seres ser) {
 		ser.saude++;
 	}*/
-	Personagem(int c, int s, int d) {
+	Personagem(char id, int c, int s, int d){
+		this->id_personagem = id;
 		this->custo = c;
 		this->defesa = d;
 		this->saude = s;
 	}
+
 	int getSaude() {
 		return saude;
+	}
+
+	int getDefesa() {
+		return defesa;
+	}
+
+	int getCusto() {
+		return custo;
+	}
+
+	char getID(){
+		return id_personagem;
 	}
 	
 	

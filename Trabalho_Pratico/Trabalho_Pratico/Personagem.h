@@ -9,4 +9,9 @@ public:
 	/*void efeito_2(Seres ser) {
 		ser.saude++;
 	}*/
+	Personagem(int c, int s, int d) {
+		this->custo = c;
+		this->defesa = d;
+		this->saude = s;
+	}
 };

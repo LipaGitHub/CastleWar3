@@ -6,7 +6,7 @@ using namespace std;
 class Caracteristica {
 	string nome;
 	int id, c_mon, c_for;
-	Personagem efeito;
+	Personagem * efeito;
 	string nomes[14] = { {"Bandeira"}, { "Superior" },{ "Pele dura" },{ "Armadura" },{ "Faca" },{ "Espada" },
 						{ "Agressao" },{ "Ecologico" },{ "HeatSeeker" },{ "BuildSeeker" },{ "Walker" },{ "Remedio" },
 						{ "SecondChance" },{ "Aluno" } };

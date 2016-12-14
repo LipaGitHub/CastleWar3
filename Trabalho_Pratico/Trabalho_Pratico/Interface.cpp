@@ -121,10 +121,11 @@ string Interface::interpretaComando(string linha) {
 	}
 	if (comando == "castelo") {
 		if (p != nullptr) {
-			string colonia;
+			char colonia;
 			int l, c;
 			iss >> colonia;
 			iss >> l >> c;
+			p->procuraColonia(colonia, l, c);
 			cout << "Castelo da colonia:" << colonia << "para:" << l << ";" << c;
 		}
 		else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }

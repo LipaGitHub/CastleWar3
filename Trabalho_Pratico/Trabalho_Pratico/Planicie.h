@@ -7,6 +7,7 @@ class Planicie {
 	vector<Perfil *> perfis;
 	vector<Perfil *>::iterator iter;
 	vector<Colonia *> colonias;
+	vector<Colonia *>::iterator iter2;
 	//existem colonias, seres e edificios
 	Personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
 	const int linha, coluna;
@@ -63,9 +64,15 @@ public:
 	
 	}
 	void criaColonia(int op) {
+		Colonia * colonia;
+		char abc = 'a';
+		int l = rand() % getLinha();
+		int c = rand() % getColuna();
 		int valor = op + 1;
-		for (int i = 0, char abc='a'; i < valor; i++,abc++)
+		for (int i = 0; i < valor; i++, abc++)
 			colonias.push_back(new Colonia(abc));
+		posicionaCastle((colonia->getCastelo()), l, c);
+
 	}
 	
 	Perfil * procuraPerfil(char letra) {
@@ -76,6 +83,19 @@ public:
 		}
 		return nullptr;
 	}
+	void procuraColonia(char col, int l,int c) { //Talvez para outras utilizãções
+		for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
+			if ((*iter2)->getId_colonia() == col) {
+				
+			}
+		}
+
+	}
+	void posicionaCastle(Personagem* cas, int l, int c)  { //ver o que se pode generalizar
+		if(mapa[l][c]==NULL)
+			mapa[l][c] = cas;
+	}
+	
 };
 
 /*ostream &operator <<(ostream &o, const Planicie &p) {

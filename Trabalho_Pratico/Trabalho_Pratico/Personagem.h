@@ -3,6 +3,7 @@
 using namespace std;
 
 class Personagem {
+	int id_personagem;
 	int saude, defesa, custo;
 public:
 	//Efeitos das caracteristicas, ex.
@@ -14,4 +15,9 @@ public:
 		this->defesa = d;
 		this->saude = s;
 	}
+	int getSaude() {
+		return saude;
+	}
+	
+	
 };

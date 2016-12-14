@@ -26,10 +26,18 @@ public:
 		
 	}
 	char getId_colonia() {
+		
 		return id_colonia;
 	}
 
 	Personagem* getCastelo() {
 		return castle;
+	}
+
+	Personagem* getEdificio(){
+
+	}
+	Personagem* getSer() {
+
 	}
 };

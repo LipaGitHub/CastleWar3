@@ -9,7 +9,7 @@ class Colonia;
 class Edificio: public Personagem{
 	//tem indicador
 	//Representados pela letra do perfil e cor da colonia
-	int id_edificio;
+	
 	Colonia* id_colonia;
 	string nome;
 public:
@@ -18,8 +18,7 @@ public:
 		//this->id_edificio = id;
 	}
 	//Personagem* efeito();
-public:
-	//Falta implementar efeito
+	 virtual char getNome();
 
 };
 
@@ -27,6 +26,9 @@ class Castelo: public Edificio{
 
 public:
 	Castelo() :Edificio("Castelo",0, 50, 10) {}
+	virtual char getNome(){
+		return 'c';
+	}
 	
 };
 

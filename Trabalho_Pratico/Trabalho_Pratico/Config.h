@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CONFIG_H
+#define CONFIG_H
 #include "Colonia.h"
 class Config {
 	int linhas, colunas, moedas, oponentes, n_perfis;
@@ -37,3 +38,5 @@ public:
 		//Falta implementar
 	}
 };
+
+#endif

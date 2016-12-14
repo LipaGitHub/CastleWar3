@@ -1,6 +1,5 @@
 #pragma once
-#ifndef INTERFACE_H
-#define INTERFACE_H
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -26,6 +25,7 @@ public:
 	void inicializa();
 	string leFicheiro(string nome);
 	string interpretaComando(string linha);
+	bool verificaComando(string comando);
+	void Mapa();
 };
 
-#endif

@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="Caracteristica.h" />
     <ClInclude Include="Colonia.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Consola.h" />
     <ClInclude Include="Edificios.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Perfil.h" />

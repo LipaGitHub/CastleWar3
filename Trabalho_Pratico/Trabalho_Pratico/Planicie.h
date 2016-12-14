@@ -1,8 +1,11 @@
 #pragma once
+#ifndef PLANICIE_H
+#define PLANICIE_H
 #include "Personagem.h"
 #include "Perfil.h"
 #include "Colonia.h"
 #include <sstream>
+
 class Planicie {
 	vector<Perfil *> perfis;
 	vector<Perfil *>::iterator iter;
@@ -66,12 +69,15 @@ public:
 	void criaColonia(int op) {
 		Colonia * colonia;
 		char abc = 'a';
-		int l = rand() % getLinha();
-		int c = rand() % getColuna();
+		
 		int valor = op + 1;
-		for (int i = 0; i < valor; i++, abc++)
+		for (int i = 0; i < valor; i++, abc++) {
+			int l = rand() % getLinha();
+			int c = rand() % getColuna();
 			colonias.push_back(new Colonia(abc));
-		posicionaCastle((colonia->getCastelo()), l, c);
+			posicionaCastle(colonias[i]->getCastelo(), l, c);
+			//posicionaCastle((colonias->getCastelo()), l, c);
+		}
 
 	}
 	
@@ -84,16 +90,29 @@ public:
 		return nullptr;
 	}
 	void procuraColonia(char col, int l,int c) { //Talvez para outras utilizãções
+		Colonia * colonia;
 		for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
 			if ((*iter2)->getId_colonia() == col) {
-				
+				posicionaCastle((colonia->getCastelo()), l, c);
 			}
 		}
-
 	}
+	
 	void posicionaCastle(Personagem* cas, int l, int c)  { //ver o que se pode generalizar
 		if(mapa[l][c]==NULL)
 			mapa[l][c] = cas;
+	}
+	void imprimeMapa() {
+		Colonia * colonia;
+		for (int i = 0; i < getLinha(); i++) {
+			for (int j = 0; j < getColuna(); j++) {
+				if (mapa[i][j] != NULL)
+					cout << mapa[i][j]->getNome();
+				else
+					cout <<" ";
+			}
+			cout << "\n";
+		}
 	}
 	
 };
@@ -102,3 +121,5 @@ public:
 	o << p.toString();
 	return o;
 }*/
+
+#endif

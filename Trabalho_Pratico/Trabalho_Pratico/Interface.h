@@ -24,6 +24,7 @@ public:
 	void perfis();
 	void simulacao();
 	void inicializa();
+	//void inserirSeres(int n, Perfil *p);
 	string leFicheiro(int tipo, string nome);
 	string interpretaComando(int tipo, string linha);
 	bool verificaComando(int tipo, string comando);

@@ -5,6 +5,7 @@
 #include "Perfil.h"
 #include "Colonia.h"
 #include "Consola.h"
+#include "Seres.h"
 #include <sstream>
 
 class Planicie {
@@ -99,6 +100,15 @@ public:
 			}
 		}
 	}
+
+	Colonia * getColonia(char id) {
+		Colonia * colonia;
+		for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
+			if ((*iter2)->getId_colonia() == id) {
+				return *iter2;
+			}
+		}
+	}
 	
 	void posicionaCastle(Personagem* cas, int l, int c)  { //ver o que se pode generalizar
 		if (mapa[l][c] == NULL)
@@ -130,6 +140,19 @@ public:
 		}
 		Consola::setTextColor(Consola::VERDE_CLARO);
 	}
+
+	/*void inserirSeres(int n) {
+		Perfil *p;
+		p = procuraPerfil('a');
+		if (p.) {
+
+		}
+		//AGARRAR NAS CARACTERISTICAS DO PERFIL
+		//CRIAR n SERES COM ESSAS CARACTERISTICAS
+		
+			/*for (int i = 0; i < n; i++) {
+			}
+	}*/
 	
 };
 

@@ -38,6 +38,15 @@ public:
 	char getIDPerfil() {
 		return id_perfil;
 	}
+
+	Caracteristica *getCaracteristasDoPerfil(char a) {
+		for (auto c : Pcaract) {
+			if (id_perfil == a)
+				return c;
+		}
+		return nullptr;
+	}
+
 	//INCOMPLETO
 	void mostraPerfil() {
 		//Mostrar as carateristicas de um certo perfil

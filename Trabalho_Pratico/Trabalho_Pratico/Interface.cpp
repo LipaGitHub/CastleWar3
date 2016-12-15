@@ -295,6 +295,22 @@ string Interface::interpretaComando(int tipo, string linha) {
 	else if(tipo == 1) {
 			if (verificaComando(tipo, comando) == true) {
 				//COMANDOS DA SIMULACAO
+				/* (...) */
+
+				if (comando == "ser") {
+					char p;
+					int n;
+					iss >> n;
+					iss >> p;
+					cout << "Numero de seres para ser criados: " << n << " com o perfil " << p << "\n";
+					//FALTA FAZER:
+					//VERIFICAR SE O n E' MENOR QUE 1 (se for 0 nem vale a pena fazer o comando)
+
+					//(FUNCAO JA NO PLANICIE.H)
+					//VERIFICAR SE O p PERFIL EXISTE NO VETOR DE PERFIS
+					//(FUNCAO NO COLONIA.H)
+					//SE FOR POSSIVEL, INSERIR n SERES AO VETOR EQ_SERES
+				}
 			}
 		}else{ 
 			cout << "Comando nao existe !\n";

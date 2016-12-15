@@ -4,6 +4,7 @@
 #include "Personagem.h"
 #include "Perfil.h"
 #include "Colonia.h"
+#include "Consola.h"
 #include <sstream>
 
 class Planicie {
@@ -67,8 +68,9 @@ public:
 	
 	}
 	void criaColonia(int op) {
-		Colonia * colonia;
+		Colonia *colonia;
 		char abc = 'a';
+		
 		int valor = op + 1;
 		for (int i = 0; i < valor; i++, abc++) {
 			int l = rand() % getLinha();
@@ -88,6 +90,7 @@ public:
 		}
 		return nullptr;
 	}
+
 	void procuraColonia(char col, int l,int c) { //Talvez para outras utilizãções
 		Colonia * colonia;
 		for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
@@ -98,18 +101,26 @@ public:
 	}
 	
 	void posicionaCastle(Personagem* cas, int l, int c)  { //ver o que se pode generalizar
-		if(mapa[l][c]==NULL)
+		if (mapa[l][c] == NULL)
 			mapa[l][c] = cas;
 	}
+
 	void imprimeMapa() {
-		//Colonia * colonia;
+		Colonia * colonia;
+		Personagem *p;
+		int n_ocorrencias = 0;
 		for (int i = 0; i < getLinha(); i++) {
 			for (int j = 0; j < getColuna(); j++) {
-				if (mapa[i][j] != NULL)
-
-					cout << mapa[i][j]->getID();
-				else
-					cout << "X";
+				if (mapa[i][j] != NULL) {
+					p = colonias[n_ocorrencias]->getCastelo();
+					Consola::setTextColor(colonias[n_ocorrencias]->getCor());
+					cout << p->getID() << "\t"; //mapa[i][j]->getID();
+					n_ocorrencias++;
+				}
+				else {
+					Consola::setTextColor(Consola::VERDE_CLARO);
+					cout << "X\t";
+				}
 			}
 			cout << "\n";
 		}

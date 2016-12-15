@@ -19,15 +19,13 @@ class Interface {
 
 public:
 	Interface();
-	void le_comandos();
-	void le_comandosSim();
+	void le_comandos(int tipo);
 	void menu();
 	void perfis();
 	void simulacao();
 	void inicializa();
 	string leFicheiro(string nome);
 	string interpretaComando(string linha);
-	string interpretaComandoSim(string linha);
 	bool verificaComando(string comando);
 	void Mapa();
 };

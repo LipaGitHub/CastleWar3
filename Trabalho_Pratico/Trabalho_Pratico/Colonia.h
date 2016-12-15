@@ -13,20 +13,21 @@ class Colonia {
 	vector <Personagem*> eq_edificios;
 	vector <Personagem*> eq_seres;
 	Castelo * castle;
+	int cor;
 
 public:
 	Colonia(char id) {
 		this->id_colonia = id;
+		this->cor = rand() % 16; //Numero da cor entre 0 e 15, aproveita-se o Consolas.h
 		criaCastelo();
 	}
 
 	void criaCastelo() {
 		castle = new Castelo();
-
-		
+		eq_edificios.push_back(castle);
 	}
+
 	char getId_colonia() {
-		
 		return id_colonia;
 	}
 
@@ -37,7 +38,12 @@ public:
 	Personagem* getEdificio(){
 
 	}
+
 	Personagem* getSer() {
 
+	}
+
+	int getCor() {
+		return cor;
 	}
 };

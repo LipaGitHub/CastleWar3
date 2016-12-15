@@ -7,10 +7,6 @@ class Personagem {
 	char id_personagem;
 	int saude, defesa, custo;
 public:
-	//Efeitos das caracteristicas, ex.
-	/*void efeito_2(Seres ser) {
-		ser.saude++;
-	}*/
 	Personagem(char id, int c, int s, int d){
 		this->id_personagem = id;
 		this->custo = c;
@@ -33,6 +29,4 @@ public:
 	char getID(){
 		return id_personagem;
 	}
-	
-	
 };

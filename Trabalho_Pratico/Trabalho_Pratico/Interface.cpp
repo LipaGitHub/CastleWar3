@@ -65,8 +65,6 @@ void Interface::perfis() {
 		<< "Escolha o ID para juntar ao perfil: ";
 }
 
-
-
 void Interface::simulacao() {
 	cout << "-------------------------------------------------------" << endl;
 	cout << "|                                                     |" << endl;
@@ -100,9 +98,7 @@ void Interface::simulacao() {
 
 void Interface::le_comandos(int tipo) {
 	string linha;
-	string res;// args;
-	//bool nao_existe;
-	//nao_existe = true;
+	string res;
 
 	system("cls");
 
@@ -112,184 +108,202 @@ void Interface::le_comandos(int tipo) {
 			cout << "comando>";
 			getline(*entrada, linha);
 			system("cls");
-			res = interpretaComando(linha);
+			res = interpretaComando(tipo, linha);
 		}
 		else {
 			simulacao();
 			cout << "comando>";
 			getline(*entrada, linha);
 			system("cls");
-			res = interpretaComando(linha);
+			res = interpretaComando(tipo, linha);
 		}
-		
-	} while (res != "inicio");
+	} while ((res != "inicio" && tipo == 0) || (res != "fim" && tipo == 1));
 
 }
 
-bool Interface::verificaComando(string comando){
-	for (auto c: comandos) {
-		if (c == comando)
-			return true;
+bool Interface::verificaComando(int tipo, string comando){
+	string comandosC[9] = { "dim", "moedas","oponentes","castelo","mkperfil","addperfil","subperfil","rmperfil","inicio" };
+	string comandosS[20] = { "zoomout","setmoedas","build","list","listp","listallp","mkbuild","repair","upgrade","sell",
+							"ser","next","nextn","ataca","recolhe","fim","save","restore","erase","load" };
+	if (tipo == 0) {
+		for (auto c : comandosC) {
+			if (c == comando)
+				return true;
+		}
+	}
+	else {
+		for (auto c : comandosS) {
+			if (c == comando)
+				return true;
+		}
 	}
 	return false;
-
 }
-string Interface::interpretaComando(string linha) {
+
+string Interface::interpretaComando(int tipo, string linha) {
 	string comando;
 	stringstream iss(linha);
 	iss >> comando;
-	if (verificaComando(comando) == true) {
-		if (comando == "dim") {
+	if (tipo == 0) {
+		if (verificaComando(tipo, comando) == true) {
+			if (comando == "dim") {
 
-			if (p == nullptr) {
-				int linha, coluna;
-				iss >> linha;
-				iss >> coluna;
-				p = new Planicie(linha, coluna);
+				if (p == nullptr) {
+					int linha, coluna;
+					iss >> linha;
+					iss >> coluna;
+					p = new Planicie(linha, coluna);
 
-				//info.setDim(linha, coluna);
-				//cout << "Linha:" << linha << endl;
-				//cout << "Coluna:" << coluna << endl;
-			}
-			else {
-				cout << "Planicie ja criada!\n";
-				system("pause");
-				le_comandos(CONFIGURACAO);
-			}
-
-		}
-		if (comando == "moedas") {
-			if (p != nullptr) {
-				int n;
-				iss >> n;
-				p->setMoedas(n);
-				//cout << "Moedas:" << n;
-			}
-			else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
-		}
-		if (comando == "oponentes") {
-			if (p != nullptr) {
-				int n;
-				iss >> n;
-				p->criaColonia(n);
-				p->setOponentes(n);
-				//cout << "Oponentes:" << n;
-			}
-			else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
-		}
-		if (comando == "castelo") {
-			if (p != nullptr) {
-				char colonia;
-				int l, c;
-				iss >> colonia;
-				iss >> l >> c;
-				p->procuraColonia(colonia, l, c);
-				cout << "Castelo da colonia:" << colonia << "para:" << l << ";" << c;
-			}
-			else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
-		}
-
-		if (comando == "mkperfil") {
-			if (p != nullptr) {
-				char letra;
-				iss >> letra;
-
-				if (info.getNPerfil() >= MAX_PERFIS) {
-					cout << "Ja foram criados os 5 Perfis!\n";
+					//info.setDim(linha, coluna);
+					//cout << "Linha:" << linha << endl;
+					//cout << "Coluna:" << coluna << endl;
 				}
 				else {
-					info.adicionaNPerfil();
-					p->criaPerfil(letra); //Põe o Perfil no vetor Perfis
-					cout << "Perfil " << letra << " criado c/ sucesso!\n";
-					/*do {
-					perfis();
-					cin >> id;
-					if (id != 15) {
-					//Criação de uma caracteristica
-					Caracteristica car(id);
-					//Adiciona a caracteristica criada no vetor do perfil
-					p.adicionaCaracteristica(car);
+					cout << "Planicie ja criada!\n";
+					system("pause");
+					le_comandos(CONFIGURACAO);
+				}
+
+			}
+			if (comando == "moedas") {
+				if (p != nullptr) {
+					int n;
+					iss >> n;
+					p->setMoedas(n);
+					//cout << "Moedas:" << n;
+				}
+				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+			}
+			if (comando == "oponentes") {
+				if (p != nullptr) {
+					int n;
+					iss >> n;
+					p->criaColonia(n);
+					p->setOponentes(n);
+					//cout << "Oponentes:" << n;
+				}
+				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+			}
+			if (comando == "castelo") {
+				if (p != nullptr) {
+					char colonia;
+					int l, c;
+					iss >> colonia;
+					iss >> l >> c;
+					p->procuraColonia(colonia, l, c);
+					cout << "Castelo da colonia:" << colonia << "para:" << l << ";" << c;
+				}
+				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+			}
+
+			if (comando == "mkperfil") {
+				if (p != nullptr) {
+					char letra;
+					iss >> letra;
+
+					if (info.getNPerfil() >= MAX_PERFIS) {
+						cout << "Ja foram criados os 5 Perfis!\n";
 					}
-					} while (id != TERMINA_PERFIL); //TERMINA_PERFIL corresponde à "terminação" da criação do perfil
-					//Guarda o perfil criado num vector Perfis
-					p.guardaPerfil(p);
-					//Mostra perfis
-					p.mostraPerfis();*/
-				}
-			}
-			else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
-		}
-		if (comando == "addperfil") {
-			if (p != nullptr) {
-				char l;
-				int c;
-				iss >> l;
-				iss >> c;
-				Perfil *aux;
-				aux = p->procuraPerfil(l);
-				
-				if (aux != nullptr) {
-					aux->adicionaCaracteristicaNoPerfil(c);
-					cout << "Adicionar a " << l << "caracteristica" << c << "\n";
-				}
-				else { cout << "Perfil inserido nao existe!\n"; }
-			}
-			else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
-		}
-		if (comando == "subperfil") {
-			bool res;
-			if (p != nullptr) {
-				char l;
-				int c;
-				iss >> l;
-				iss >> c;
-
-				Perfil *aux;
-				aux = p->procuraPerfil(l);
-				aux->mostraPerfil();
-				if (aux != nullptr) {
-					if ((res = aux->procuraCarPerfil(c)) == true) {
-						aux->removeCaracteristicaNoPerfil(c);
-						cout << "Remove a " << l << " a caracteristica" << c << "\n";
+					else {
+						info.adicionaNPerfil();
+						p->criaPerfil(letra); //Põe o Perfil no vetor Perfis
+						cout << "Perfil " << letra << " criado c/ sucesso!\n";
+						/*do {
+						perfis();
+						cin >> id;
+						if (id != 15) {
+						//Criação de uma caracteristica
+						Caracteristica car(id);
+						//Adiciona a caracteristica criada no vetor do perfil
+						p.adicionaCaracteristica(car);
+						}
+						} while (id != TERMINA_PERFIL); //TERMINA_PERFIL corresponde à "terminação" da criação do perfil
+						//Guarda o perfil criado num vector Perfis
+						p.guardaPerfil(p);
+						//Mostra perfis
+						p.mostraPerfis();*/
 					}
-					else { cout << "Nao existe a Caracteristica no perfil encontrado.\n"; }
 				}
-				else { cout << "Insira um Perfil valido!\n"; }
-				cout << "\n";
-				aux->mostraPerfil();
+				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
 			}
-			else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+			if (comando == "addperfil") {
+				if (p != nullptr) {
+					char l;
+					int c;
+					iss >> l;
+					iss >> c;
+					Perfil *aux;
+					aux = p->procuraPerfil(l);
 
-		}
-		if (comando == "rmperfil") {
-			if (p != nullptr) {
-				char l;
-				iss >> l;
-				cout << "Abandonar perfil:" << l;
-				Perfil *aux;
-				aux = p->procuraPerfil(l);
-				if (aux != nullptr) {
-					aux->~Perfil();
-					p->removePerfil(l);
-					cout << "Removido Perfil com Sucesso!\n";
+					if (aux != nullptr) {
+						aux->adicionaCaracteristicaNoPerfil(c);
+						cout << "Adicionar a " << l << "caracteristica" << c << "\n";
+					}
+					else { cout << "Perfil inserido nao existe!\n"; }
 				}
-				else { cout << "Não é possivel Sair de um Perfil que não existe!\n"; }
+				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
 			}
-			else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
-		}
-		if (comando == "load") {
-			string nome;
-			iss >> nome;
-			comando = leFicheiro(nome);
+			if (comando == "subperfil") {
+				bool res;
+				if (p != nullptr) {
+					char l;
+					int c;
+					iss >> l;
+					iss >> c;
 
+					Perfil *aux;
+					aux = p->procuraPerfil(l);
+					aux->mostraPerfil();
+					if (aux != nullptr) {
+						if ((res = aux->procuraCarPerfil(c)) == true) {
+							aux->removeCaracteristicaNoPerfil(c);
+							cout << "Remove a " << l << " a caracteristica" << c << "\n";
+						}
+						else { cout << "Nao existe a Caracteristica no perfil encontrado.\n"; }
+					}
+					else { cout << "Insira um Perfil valido!\n"; }
+					cout << "\n";
+					aux->mostraPerfil();
+				}
+				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+
+			}
+			if (comando == "rmperfil") {
+				if (p != nullptr) {
+					char l;
+					iss >> l;
+					cout << "Abandonar perfil:" << l;
+					Perfil *aux;
+					aux = p->procuraPerfil(l);
+					if (aux != nullptr) {
+						aux->~Perfil();
+						p->removePerfil(l);
+						cout << "Removido Perfil com Sucesso!\n";
+					}
+					else { cout << "Não é possivel Sair de um Perfil que não existe!\n"; }
+				}
+				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+			}
+			if (comando == "load") {
+				string nome;
+				iss >> nome;
+				comando = leFicheiro(tipo, nome);
+
+			}
 		}
 	}
-else { cout << "Comando nao existe !\n"; }
+	else if(tipo == 1) {
+			if (verificaComando(tipo, comando) == true) {
+				//COMANDOS DA SIMULACAO
+			}
+		}else{ 
+			cout << "Comando nao existe !\n";
+		}
 	return comando;
 	
 }
 
-string Interface::leFicheiro(string nome) {
+string Interface::leFicheiro(int tipo, string nome) {
 	string linha, res;
 
 	ifstream ifi(nome);
@@ -297,7 +311,7 @@ string Interface::leFicheiro(string nome) {
 		cout << "Erro ao introduzir o nome do ficheiro!\n";
 
 	while (getline(ifi, linha)) {
-		res = interpretaComando(linha);
+		res = interpretaComando(tipo, linha);
 	}
 
 	ifi.close();
@@ -305,7 +319,6 @@ string Interface::leFicheiro(string nome) {
 }
 
 Interface::Interface() {
-	comandos = { "dim", "moedas","oponentes","castelo","mkperfil","addperfil","subperfil","rmperfil","inicio" };
 	inicializa();
 	p = nullptr;
 

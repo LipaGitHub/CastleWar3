@@ -24,9 +24,9 @@ public:
 	void perfis();
 	void simulacao();
 	void inicializa();
-	string leFicheiro(string nome);
-	string interpretaComando(string linha);
-	bool verificaComando(string comando);
+	string leFicheiro(int tipo, string nome);
+	string interpretaComando(int tipo, string linha);
+	bool verificaComando(int tipo, string comando);
 	void Mapa();
 };
 

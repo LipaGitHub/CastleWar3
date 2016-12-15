@@ -114,7 +114,7 @@ public:
 				if (mapa[i][j] != NULL) {
 					p = colonias[n_ocorrencias]->getCastelo();
 					Consola::setTextColor(colonias[n_ocorrencias]->getCor());
-					cout << p->getID() << "\t"; //mapa[i][j]->getID();
+					cout << p->getID() << "\t";
 					n_ocorrencias++;
 				}
 				else {
@@ -124,6 +124,11 @@ public:
 			}
 			cout << "\n";
 		}
+		for (auto c : colonias) {
+			Consola::setTextColor(c->getCor());
+			cout << "Colonia " << c->getId_colonia() << "\n";
+		}
+		Consola::setTextColor(Consola::VERDE_CLARO);
 	}
 	
 };

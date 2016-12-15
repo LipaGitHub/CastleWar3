@@ -9,8 +9,9 @@ class Seres: public Personagem{
 	//Custo Somatorio das caracteristicas
 	//Representados pela letra do perfil e cor da colonia
 public:
-	Seres() {
-		this->forca = 0;
+	//Seres() :Personagem(){ VER ISTO TEM QUE SER ASSIM
+		Seres(){
+		this->forca = 10;
 		this->velocidade = 0;
 		this->ataque = 0;
 	}

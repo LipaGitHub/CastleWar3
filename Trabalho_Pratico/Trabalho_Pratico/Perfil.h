@@ -35,25 +35,32 @@ public:
 		return false;
 
 	}
+	char getIDPerfil() {
+		return id_perfil;
+	}
+	//INCOMPLETO
+	void mostraPerfil() {
+		//Mostrar as carateristicas de um certo perfil
+		//Aqui teremos que usar os iteradores!!
+		for (int i = 0; i < Pcaract.size(); i++)
+			cout << Pcaract[i]->getIdCaracteristica() << "\n";
+	}
+
 	~Perfil() {
 		for (auto c : Pcaract)
 			delete c;
 		Pcaract.clear();
 	}
-
+	
 	/*int incrementaIdPerfil() {
-		return id++;
+	return id++;
 	}*/
 
 	/*int verificaNPerfis() {
-		if (perfis.size() < MAX_PERFIS)
-			return 0;
-		else return 1;
+	if (perfis.size() < MAX_PERFIS)
+	return 0;
+	else return 1;
 	}*/
-
-	char getIDPerfil() {
-		return id_perfil;
-	}
 
 	/*void adicionaCaracteristica(Caracteristica c) {
 		perfil.push_back(c);
@@ -63,14 +70,7 @@ public:
 		perfis.push_back(p);
 	}*/
 
-	//INCOMPLETO
-	void mostraPerfil() {
-		//Mostrar as carateristicas de um certo perfil
-		//Aqui teremos que usar os iteradores!!
-		for (int i = 0; i < Pcaract.size(); i++)
-			cout << Pcaract[i]->getIdCaracteristica() << "\n";
-	}
-
+	
 	/*void mostraPerfis() {
 		//vector<Perfil>::iterator iter;
 		for (iter = perfis.begin(); iter != perfis.end(); iter++)

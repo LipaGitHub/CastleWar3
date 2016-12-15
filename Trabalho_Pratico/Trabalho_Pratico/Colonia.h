@@ -46,4 +46,9 @@ public:
 	int getCor() {
 		return cor;
 	}
+	void inserirSerEq(int n) {
+		for (int i = 0; i < n;i++){
+			//eq_seres.push_back(new Personagem());
+		}
+	}
 };

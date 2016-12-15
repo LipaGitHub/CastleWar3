@@ -43,4 +43,10 @@ public:
 		os << " ID: " << id << ", Custo monetario: " << c_mon << ", Custo forca : " << c_for;
 		return os.str();
 	}
+	int efeitoCaracteristica(int id) {
+		int res[2];
+		for (int i = 0; i < 2; i++)
+			res[i] = carac[id - 1][i+1];
+		return res[2];
+	}
 };

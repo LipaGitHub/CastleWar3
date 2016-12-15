@@ -298,14 +298,20 @@ string Interface::interpretaComando(int tipo, string linha) {
 				/* (...) */
 
 				if (comando == "ser") {
-					char p;
+					char perfil;
 					int n;
 					iss >> n;
-					iss >> p;
+					iss >> perfil;
 					cout << "Numero de seres para ser criados: " << n << " com o perfil " << p << "\n";
 					//FALTA FAZER:
 					//VERIFICAR SE O n E' MENOR QUE 1 (se for 0 nem vale a pena fazer o comando)
-
+					if (n >=1 && (p->procuraPerfil(perfil) !=nullptr) ) {
+						
+					}else {
+						cout << "Valor invalido insira de novo!\n";
+						return 0;
+					}
+						
 					//(FUNCAO JA NO PLANICIE.H)
 					//VERIFICAR SE O p PERFIL EXISTE NO VETOR DE PERFIS
 					//(FUNCAO NO COLONIA.H)

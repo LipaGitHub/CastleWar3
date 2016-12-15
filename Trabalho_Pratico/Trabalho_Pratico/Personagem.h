@@ -7,6 +7,9 @@ class Personagem {
 	char id_personagem;
 	int saude, defesa, custo;
 public:
+	Personagem() {
+
+	}
 	Personagem(char id, int c, int s, int d){
 		this->id_personagem = id;
 		this->custo = c;

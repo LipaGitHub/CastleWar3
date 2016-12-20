@@ -61,5 +61,6 @@
     <Text Include="perfis.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="imp.txt" />
   </ItemGroup>
 </Project>

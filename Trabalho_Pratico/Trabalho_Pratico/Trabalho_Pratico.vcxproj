@@ -159,6 +159,7 @@
     <ClInclude Include="Seres.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="imp.txt" />
     <Text Include="perfis.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -27,17 +27,27 @@ Personagem* Colonia::getEdificio() {
 
 }
 
-Personagem* Colonia::getSer() {
+/*Personagem* Colonia::getSer() {
 	ser = new Seres();
 	return ser;
-}
+}*/
 
 int Colonia::getCor() {
 	return cor;
 }
 
+
 void Colonia::inserirSeres(int n, Perfil *p) {
+	Seres *s;
+	vector<Caracteristica *> c;
+
+	
 	for (int i = 0; i < n; i++) {
-		eq_seres.push_back(getSer());
+		s = new Seres();
+		c = p->getCaracteristicas();
+		for (iter = c.begin();iter != c.end();iter++) {
+			s->adicionaCaraSeres(*iter);
+		}
+		eq_seres.push_back(s);
 	}
 }

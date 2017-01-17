@@ -28,6 +28,10 @@ char Perfil::getIDPerfil() {
 	return id_perfil;
 }
 
+vector<Caracteristica *> Perfil::getCaracteristicas() {
+	return Pcaract;
+}
+
 Caracteristica* Perfil::getCaracteristasDoPerfil(char a) {
 	for (auto c : Pcaract) {
 		if (id_perfil == a)
@@ -43,6 +47,14 @@ void Perfil::mostraPerfil() {
 	for (int i = 0; i < Pcaract.size(); i++)
 		cout << Pcaract[i]->getIdCaracteristica() << "\n";
 }
+
+/*int Perfil::contaCaracteristicas() {
+	int conta = 0;
+	for (iter2 = Pcaract.begin(); iter2 != Pcaract.end(); iter2++) {
+		++conta;
+	}
+	return conta;
+}*/
 
 Perfil::~Perfil() {
 	for (auto c : Pcaract)

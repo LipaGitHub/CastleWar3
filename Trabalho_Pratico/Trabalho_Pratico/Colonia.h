@@ -5,6 +5,15 @@
 #include <vector>
 #include "Personagem.h"
 #include "Edificios.h"
+<<<<<<< HEAD
+
+=======
+#include "Planicie.h"
+#include "Seres.h"
+#include "Perfil.h"
+#include "Caracteristica.h"
+
+class Perfil;
 
 class Colonia {
 	//Contem um conjunto de seres e edificios
@@ -13,7 +22,9 @@ class Colonia {
 	char id_colonia;
 	vector <Personagem*> eq_edificios;
 	vector <Personagem*> eq_seres;
-	Castelo* castle;
+
+	vector <Caracteristica*>::iterator iter;
+	Castelo * castle;
 	Personagem *ser;
 	int cor;
 
@@ -23,7 +34,7 @@ public:
 	char getId_colonia();
 	Personagem* getCastelo();
 	Personagem* getEdificio();
-	Personagem* getSer();
+	//Personagem* getSer();
 	int getCor();
 	void inserirSeres(int n, Perfil *p);
 };

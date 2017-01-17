@@ -122,7 +122,7 @@ void Interface::le_comandos(int tipo) {
 }
 
 bool Interface::verificaComando(int tipo, string comando){
-	string comandosC[9] = { "dim", "moedas","oponentes","castelo","mkperfil","addperfil","subperfil","rmperfil","inicio" };
+	string comandosC[10] = { "dim", "moedas","oponentes","castelo","mkperfil","addperfil","subperfil","rmperfil","load", "inicio" };
 	string comandosS[20] = { "zoomout","setmoedas","build","list","listp","listallp","mkbuild","repair","upgrade","sell",
 							"ser","next","nextn","ataca","recolhe","fim","save","restore","erase","load" };
 	if (tipo == 0) {

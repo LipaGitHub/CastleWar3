@@ -1,2 +1,6 @@
 dim 10 10
 oponentes 2
+mkperfil A
+mkperfil B
+addperfil A 1
+addperfil A 2

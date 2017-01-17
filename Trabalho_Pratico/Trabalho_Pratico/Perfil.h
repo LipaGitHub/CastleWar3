@@ -16,7 +16,9 @@ public:
 	void removeCaracteristicaNoPerfil(int id);
 	bool procuraCarPerfil(int id);
 	char getIDPerfil();
+	vector<Caracteristica *> getCaracteristicas();
 	Caracteristica *getCaracteristasDoPerfil(char a);
 	void mostraPerfil();
+	//int contaCaracteristicas();
 	~Perfil();
 };

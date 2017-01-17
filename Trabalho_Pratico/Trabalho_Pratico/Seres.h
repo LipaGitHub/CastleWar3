@@ -1,4 +1,6 @@
-#pragma once
+
+#ifndef SERES_H
+#define SERES_H
 #include "Personagem.h"
 using namespace std;
 
@@ -13,3 +15,4 @@ public:
 	Seres();
 
 };
+#endif

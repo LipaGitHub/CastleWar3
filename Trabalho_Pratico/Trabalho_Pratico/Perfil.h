@@ -1,4 +1,7 @@
 #pragma once
+#ifndef PERFIL_H
+#define PERFIL_H
+
 #include <vector>
 #include "Interface.h"
 #include "Planicie.h"
@@ -20,3 +23,4 @@ public:
 	void mostraPerfil();
 	~Perfil();
 };
+#endif

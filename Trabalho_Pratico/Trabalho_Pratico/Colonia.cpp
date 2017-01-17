@@ -1,4 +1,8 @@
 #include "Colonia.h"
+#include "Personagem.h"
+#include "Edificios.h"
+#include "Seres.h"
+#include "Perfil.h"
 
 Colonia::Colonia(char id) {
 	this->id_colonia = id;
@@ -32,7 +36,7 @@ int Colonia::getCor() {
 	return cor;
 }
 
-void Colonia::inserirSeres(int n, Perfil *p) { //p->getCaracteristcas();
+void Colonia::inserirSeres(int n, Perfil *p) {
 	for (int i = 0; i < n; i++) {
 		eq_seres.push_back(getSer());
 	}

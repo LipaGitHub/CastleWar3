@@ -1,11 +1,12 @@
 #pragma once
+#ifndef EDIFICIOS_H
+#define EDIFICIOS_H
+
 #include "Personagem.h"
 #include "Colonia.h"
 #include <sstream>
 
 using namespace std;
-
-
 
 class Edificio: public Personagem{
 	//tem indicador
@@ -14,7 +15,7 @@ class Edificio: public Personagem{
 	string nome;
 	char id_e;
 public:
-	Edificio(string n, char id_e, int c, int s, int d) : Personagem(id_e, c, s, d);
+	Edificio(string n, char id_e, int c, int s, int d);
 
 	/*char getIdEdificio() { //Pode vir a ser necessario mas por enquanto nao
 		return id_e;
@@ -37,3 +38,5 @@ class Torre : public Edificio {
 public:
 	Torre() :Edificio("Torre",'T',20,20,10){}
 };
+
+#endif

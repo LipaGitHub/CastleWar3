@@ -1,8 +1,7 @@
 #include "Interface.h"
-#include "Planicie.h"
-#include "Personagem.h"
 #include "Config.h"
 #include "Perfil.h"
+#include "Planicie.h"
 #include "Consola.h"
 
 #define CONFIGURACAO 0

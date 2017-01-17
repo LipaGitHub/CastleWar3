@@ -1,4 +1,6 @@
 #pragma once
+#ifndef INTERFACE_H
+#define INTERFACE_H
 
 #include <vector>
 #include <iostream>
@@ -9,8 +11,9 @@
 #include "Personagem.h"
 #include "Config.h"
 #include "Perfil.h"
+#include "Planicie.h"
 using namespace std;
-class Planicie;
+
 class Interface {
 	istream * entrada;
 	vector <string> comandos;
@@ -30,4 +33,4 @@ public:
 	bool verificaComando(int tipo, string comando);
 	void Mapa();
 };
-
+#endif

@@ -1,4 +1,7 @@
 #include "Planicie.h"
+#include "Perfil.h"
+#include "Colonia.h"
+#include "Personagem.h"
 
 Planicie::Planicie(const int l, const int c, int m = 0, int o = 1) :linha(l), coluna(c), moedas(m), oponentes(o) {
 	//this->perfis = vector<Perfil *>();

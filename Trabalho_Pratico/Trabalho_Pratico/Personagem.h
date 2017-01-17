@@ -1,6 +1,6 @@
 #pragma once
-//#include "Seres.h"
-//#include "Edificios.h"
+#ifndef PERSONAGEM_H
+#define PERSONAGEM_H
 using namespace std;
 
 class Personagem {
@@ -14,3 +14,4 @@ public:
 	int getCusto();
 	char getID();
 };
+#endif

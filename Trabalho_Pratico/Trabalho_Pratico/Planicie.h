@@ -1,11 +1,10 @@
 #pragma once
 #ifndef PLANICIE_H
 #define PLANICIE_H
-#include "Personagem.h"
+
 #include "Perfil.h"
 #include "Colonia.h"
-#include "Consola.h"
-#include "Seres.h"
+#include "Personagem.h"
 #include <sstream>
 
 class Planicie {

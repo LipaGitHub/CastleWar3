@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CARACTERISTICA_H
+#define CARACTERISTICA_H
+
 #include "Personagem.h"
 #include "Interface.h"
 using namespace std;
@@ -32,3 +34,4 @@ public:
 	string toString();
 	int efeitoCaracteristica(int id);
 };
+#endif

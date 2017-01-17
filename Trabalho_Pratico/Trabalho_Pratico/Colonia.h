@@ -3,17 +3,12 @@
 #define COLONIA_H
 
 #include <vector>
-#include "Personagem.h"
-#include "Edificios.h"
-<<<<<<< HEAD
-
-=======
-#include "Planicie.h"
-#include "Seres.h"
-#include "Perfil.h"
-#include "Caracteristica.h"
+using namespace std;
 
 class Perfil;
+class Personagem;
+class Castelo;
+class Caracteristica;
 
 class Colonia {
 	//Contem um conjunto de seres e edificios

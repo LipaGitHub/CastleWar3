@@ -2,10 +2,12 @@
 #ifndef PLANICIE_H
 #define PLANICIE_H
 
-#include "Perfil.h"
-#include "Colonia.h"
-#include "Personagem.h"
 #include <sstream>
+#include "Perfil.h"
+#include <iostream>
+class Colonia;
+class Personagem;
+using namespace std;
 
 class Planicie {
 	vector<Perfil *> perfis;

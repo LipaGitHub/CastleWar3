@@ -1,4 +1,6 @@
 #include "Seres.h"
+#include "Caracteristica.h"
+#include "Personagem.h"
 
 Seres::Seres() {
 	this->forca = 10;

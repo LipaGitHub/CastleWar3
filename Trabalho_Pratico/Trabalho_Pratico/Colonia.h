@@ -19,41 +19,12 @@ class Colonia {
 	int cor;
 
 public:
-	Colonia(char id) {
-		this->id_colonia = id;
-		this->cor = rand() % 16; //Numero da cor entre 0 e 15, aproveita-se o Consolas.h
-		criaCastelo();
-	}
-
-	void criaCastelo() {
-		castle = new Castelo();
-		eq_edificios.push_back(castle);
-	}
-
-	char getId_colonia() {
-		return id_colonia;
-	}
-
-	Personagem* getCastelo() {
-		return castle;
-	}
-
-	Personagem* getEdificio(){
-
-	}
-
-	Personagem* getSer() {
-		ser = new Seres();
-		return ser;
-	}
-
-	int getCor() {
-		return cor;
-	}
-
-	void inserirSeres(int n, Perfil *p) { //p->getCaracteristcas();
-		for (int i = 0; i < n;i++){	
-			eq_seres.push_back(getSer());
-		}
-	}
+	Colonia(char id);
+	void criaCastelo();
+	char getId_colonia();
+	Personagem* getCastelo();
+	Personagem* getEdificio();
+	Personagem* getSer();
+	int getCor();
+	void inserirSeres(int n, Perfil *p);
 };

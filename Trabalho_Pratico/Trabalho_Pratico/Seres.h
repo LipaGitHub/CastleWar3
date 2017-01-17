@@ -10,10 +10,6 @@ class Seres: public Personagem{
 	//Representados pela letra do perfil e cor da colonia
 public:
 	//Seres() :Personagem(){ VER ISTO TEM QUE SER ASSIM
-		Seres(){
-		this->forca = 10;
-		this->velocidade = 0;
-		this->ataque = 0;
-	}
+	Seres();
 
 };

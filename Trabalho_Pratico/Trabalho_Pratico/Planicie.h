@@ -16,149 +16,24 @@ class Planicie {
 	//existem colonias, seres e edificios
 	Personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
 	const int linha, coluna;
-	int moedas,oponentes;
+	int moedas, oponentes;
 public:
-	Planicie( const int l, const int c, int m=0, int o=1):linha(l),coluna(c),moedas(m), oponentes(o) {
-		//this->perfis = vector<Perfil *>();
-		criaMapa();
-	}
-
-	int getLinha() {
-		return linha;
-	}
-
-	int getColuna() {
-		return coluna;
-	}
-	void setMoedas(int m){
-		this->moedas = m;
-	}
-	void setOponentes(int opo) {
-		this->oponentes = opo;
-	}
-	vector<Perfil *> retornaPerfis() {
-		return perfis;
-	}
-
-	void criaMapa() {
-		mapa = new Personagem **[getLinha()];
-		for (int i = 0; i < getLinha(); i++) {
-			mapa[i] = new Personagem *[getColuna()];
-		}
-		for (int i = 0; i < getLinha(); i++)
-			for (int j = 0; j < getColuna(); j++)
-				mapa[i][j] = NULL;
-	}
-
-	string toString()const {
-		ostringstream os;
-		for (int i = 0; i < linha; i++) {
-			for (int j = 0; j < coluna; j++)
-				cout << "*";
-			cout << "\n";
-		}
-		return os.str();
-	}
-
-	void criaPerfil(char letra) {
-		perfis.push_back(new Perfil(letra));
-	}
-
-	void removePerfil(char letra) {
-		 perfis.erase(iter);
-	
-	}
-	void criaColonia(int op) {
-		Colonia *colonia;
-		char abc = 'a';
-		
-		int valor = op + 1;
-		for (int i = 0; i < valor; i++, abc++) {
-			int l = rand() % getLinha();
-			int c = rand() % getColuna();
-			colonias.push_back(new Colonia(abc));
-			posicionaCastle(colonias[i]->getCastelo(), l, c);
-			//posicionaCastle((colonias->getCastelo()), l, c);
-		}
-
-	}
-	
-	Perfil * procuraPerfil(char letra) {
-		for (iter = perfis.begin(); iter != perfis.end(); iter++) {
-			if ((*iter)->getIDPerfil() == letra) {
-				return *iter;
-			}
-		}
-		return nullptr;
-	}
-
-	void procuraColonia(char col, int l,int c) { //Talvez para outras utilizãções
-		Colonia * colonia;
-		for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
-			if ((*iter2)->getId_colonia() == col) {
-				posicionaCastle((colonia->getCastelo()), l, c);
-			}
-		}
-	}
-
-	Colonia * getColonia(char id) {
-		Colonia * colonia;
-		for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
-			if ((*iter2)->getId_colonia() == id) {
-				return *iter2;
-			}
-		}
-	}
-	
-	void posicionaCastle(Personagem* cas, int l, int c)  { //ver o que se pode generalizar
-		if (mapa[l][c] == NULL)
-			mapa[l][c] = cas;
-	}
-
-	void imprimeMapa() {
-		Colonia * colonia;
-		Personagem *p;
-		int n_ocorrencias = 0;
-		for (int i = 0; i < getLinha(); i++) {
-			for (int j = 0; j < getColuna(); j++) {
-				if (mapa[i][j] != NULL) {
-					p = colonias[n_ocorrencias]->getCastelo();
-					Consola::setTextColor(colonias[n_ocorrencias]->getCor());
-					cout << p->getID() << "\t";
-					n_ocorrencias++;
-				}
-				else {
-					Consola::setTextColor(Consola::VERDE_CLARO);
-					cout << "X\t";
-				}
-			}
-			cout << "\n";
-		}
-		for (auto c : colonias) {
-			Consola::setTextColor(c->getCor());
-			cout << "Colonia " << c->getId_colonia() << "\n";
-		}
-		Consola::setTextColor(Consola::VERDE_CLARO);
-	}
-
-	/*void inserirSeres(int n) {
-		Perfil *p;
-		p = procuraPerfil('a');
-		if (p.) {
-
-		}
-		//AGARRAR NAS CARACTERISTICAS DO PERFIL
-		//CRIAR n SERES COM ESSAS CARACTERISTICAS
-		
-			/*for (int i = 0; i < n; i++) {
-			}
-	}*/
-	
+	Planicie(const int l, const int c, int m = 0, int o = 1);
+	int getLinha();
+	int getColuna();
+	void setMoedas(int m);
+	void setOponentes(int opo);
+	vector<Perfil *> retornaPerfis();
+	void criaMapa();
+	string toString()const;
+	void criaPerfil(char letra);
+	void removePerfil(char letra);
+	void criaColonia(int op);
+	Perfil * procuraPerfil(char letra);
+	void procuraColonia(char col, int l, int c);
+	Colonia * getColonia(char id);
+	void posicionaCastle(Personagem* cas, int l, int c);
+	void imprimeMapa();
 };
-
-/*ostream &operator <<(ostream &o, const Planicie &p) {
-	o << p.toString();
-	return o;
-}*/
 
 #endif

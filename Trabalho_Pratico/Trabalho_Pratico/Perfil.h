@@ -3,10 +3,10 @@
 #define PERFIL_H
 
 #include <vector>
-#include "Interface.h"
-#include "Planicie.h"
 #include "Caracteristica.h"
 #define MAX_PERFIS 5
+
+
 
 class Perfil {
 	char id_perfil;

@@ -1,9 +1,11 @@
 #ifndef CARACTERISTICA_H
 #define CARACTERISTICA_H
 
-#include "Personagem.h"
+
 #include "Interface.h"
 using namespace std;
+
+class Personagem;
 
 class Caracteristica {
 	string nome;

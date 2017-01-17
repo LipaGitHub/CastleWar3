@@ -1,4 +1,5 @@
 #include "Perfil.h"
+#include "Caracteristica.h"
 
 Perfil::Perfil(char id_perfil) {
 	this->id_perfil = id_perfil;

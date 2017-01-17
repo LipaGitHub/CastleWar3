@@ -4,6 +4,7 @@
 #include "Planicie.h"
 #include "Consola.h"
 
+
 #define CONFIGURACAO 0
 #define SIMULACAO 0
 #define TERMINA_PERFIL 15
@@ -308,7 +309,7 @@ string Interface::interpretaComando(int tipo, string linha) {
 						Perfil *per;
 						Colonia *c;
 						per = p->procuraPerfil(perfil);
-						c = p->getColonia(per->getIDPerfil);
+						c = p->getColonia(per->getIDPerfil());
 						c->inserirSeres(n, per);
 					}else {
 						if (n < 1) {

@@ -23,9 +23,9 @@ Personagem* Colonia::getCastelo() {
 	return castle;
 }
 
-Personagem* Colonia::getEdificio() {
+/*Personagem* Colonia::getEdificio() {
 
-}
+}*/
 
 /*Personagem* Colonia::getSer() {
 	ser = new Seres();

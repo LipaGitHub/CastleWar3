@@ -3,10 +3,12 @@
 #define EDIFICIOS_H
 
 #include "Personagem.h"
-#include "Colonia.h"
+
 #include <sstream>
 
 using namespace std;
+
+class Colonia;
 
 class Edificio: public Personagem{
 	//tem indicador

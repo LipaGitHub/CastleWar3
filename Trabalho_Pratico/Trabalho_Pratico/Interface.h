@@ -7,12 +7,14 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include "Planicie.h"
-#include "Personagem.h"
+
+
 #include "Config.h"
-#include "Perfil.h"
-#include "Planicie.h"
+#include <iostream>
+
 using namespace std;
+
+class Planicie;
 
 class Interface {
 	istream * entrada;

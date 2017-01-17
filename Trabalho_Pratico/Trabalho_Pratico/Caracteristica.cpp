@@ -1,4 +1,5 @@
 #include "Caracteristica.h"
+#include "Personagem.h"
 
 Caracteristica::Caracteristica(int id) {
 	this->nome = nomes[id - 1];

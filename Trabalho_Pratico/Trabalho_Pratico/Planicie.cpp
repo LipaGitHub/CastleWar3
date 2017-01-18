@@ -3,7 +3,7 @@
 #include "Personagem.h"
 #include "Planicie.h"
 #include "Consola.h"
-
+#include <time.h>
 
 Planicie::Planicie(const int l, const int c, int m, int o):linha(l), coluna(c), moedas(m), oponentes(o) {
 	//this->perfis = vector<Perfil *>();
@@ -20,11 +20,26 @@ int Planicie::getColuna() {
 void Planicie::setMoedas(int m) {
 	this->moedas = m;
 }
+int Planicie::getMoedas() {
+	return moedas;
+}
 void Planicie::setOponentes(int opo) {
 	this->oponentes = opo;
 }
 vector<Perfil *> Planicie::retornaPerfis() {
 	return perfis;
+}
+
+vector<Colonia *> Planicie::retornaColonias() {
+	return colonias;
+}
+
+bool Planicie::verificaColonia() {
+	if (retornaColonias().empty() == 0)
+		return true;
+	else
+		return false;
+
 }
 
 void Planicie::criaMapa() {
@@ -55,15 +70,15 @@ void Planicie::removePerfil(char letra) {
 	perfis.erase(iter);
 
 }
-void Planicie::criaColonia(int op) {
+void Planicie::criaColonia(int op,int x) {
 	Colonia *colonia;
 	char abc = 'A';
-
+	srand(time(NULL));
 	int valor = op + 1;
 	for (int i = 0; i < valor; i++, abc++) {
 		int l = rand() % getLinha();
 		int c = rand() % getColuna();
-		colonias.push_back(new Colonia(abc));
+		colonias.push_back(new Colonia(abc, x));
 		posicionaCastle(colonias[i]->getCastelo(), l, c);
 		//posicionaCastle((colonias->getCastelo()), l, c);
 	}
@@ -94,6 +109,14 @@ Colonia * Planicie::getColonia(char id) {
 		if ((*iter2)->getId_colonia() == id) {
 			return *iter2;
 		}
+	}
+	return nullptr;
+}
+
+void Planicie::moedasColonia(int x) {
+	Colonia * colonia;
+	for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
+		(*iter2)->setSaldo(x);
 	}
 }
 

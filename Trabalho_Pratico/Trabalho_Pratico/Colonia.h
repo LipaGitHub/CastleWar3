@@ -20,14 +20,15 @@ class Colonia {
 	vector <Personagem*> eq_seres;
 	Castelo * castle;
 	Seres * ser;
-	int cor;
+	int cor, saldo;
 
 public:
-	Colonia(char id);
+	Colonia(char id, int x);
 	void criaCastelo();
 	char getId_colonia();
 	Personagem* getCastelo();
 	Personagem* getEdificio();
+	void setSaldo(int x);
 	//Personagem* getSer();
 	int getCor();
 	void inserirSeres(int n, Perfil *p);

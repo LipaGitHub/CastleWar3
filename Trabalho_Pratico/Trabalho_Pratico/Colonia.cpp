@@ -4,8 +4,9 @@
 #include "Seres.h"
 #include "Perfil.h"
 
-Colonia::Colonia(char id) {
+Colonia::Colonia(char id, int x) {
 	this->id_colonia = id;
+	this->saldo = x;
 	this->cor = rand() % 16; //Numero da cor entre 0 e 15, aproveita-se o Consolas.h
 	criaCastelo();
 }
@@ -50,4 +51,8 @@ void Colonia::inserirSeres(int n, Perfil *p) {
 		}
 		eq_seres.push_back(ser);
 	}
+}
+
+void Colonia::setSaldo(int x) {
+	this->saldo = x;
 }

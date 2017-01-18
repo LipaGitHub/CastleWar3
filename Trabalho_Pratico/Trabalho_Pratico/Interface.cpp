@@ -170,15 +170,21 @@ string Interface::interpretaComando(int tipo, string linha) {
 					int n;
 					iss >> n;
 					p->setMoedas(n);
-					//cout << "Moedas:" << n;
+					if ((p->verificaColonia()) != false)
+						p->moedasColonia(n);
 				}
-				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
+				else {
+					cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n";
+				//cout << "Moedas:" << n;
 			}
+			
+			}
+	
 			if (comando == "oponentes") {
 				if (p != nullptr) {
 					int n;
 					iss >> n;
-					p->criaColonia(n);
+					p->criaColonia(n, p->getMoedas());
 					p->setOponentes(n);
 					//cout << "Oponentes:" << n;
 				}
@@ -328,6 +334,7 @@ string Interface::interpretaComando(int tipo, string linha) {
 	return comando;
 	
 }
+
 
 string Interface::leFicheiro(int tipo, string nome) {
 	string linha, res;

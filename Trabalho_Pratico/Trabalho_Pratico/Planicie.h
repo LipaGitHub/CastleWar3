@@ -17,24 +17,28 @@ class Planicie {
 	//existem colonias, seres e edificios
 	Personagem* ** mapa; // 1º *-> ponteiro para personagem  2º *-> 1D 3º *-> 2D
 	const int linha, coluna;
-	int moedas, oponentes;
+	int moedas=0, oponentes;
 public:
 	Planicie(const int l, const int c, int m = 0, int o = 1);
 	int getLinha();
 	int getColuna();
 	void setMoedas(int m);
+	int getMoedas();
 	void setOponentes(int opo);
 	vector<Perfil *> retornaPerfis();
+	vector<Colonia *> retornaColonias();
 	void criaMapa();
 	string toString()const;
 	void criaPerfil(char letra);
 	void removePerfil(char letra);
-	void criaColonia(int op);
+	void criaColonia(int op, int x);
 	Perfil * procuraPerfil(char letra);
 	void procuraColonia(char col, int l, int c);
 	Colonia * getColonia(char id);
 	void posicionaCastle(Personagem* cas, int l, int c);
 	void imprimeMapa();
+	bool verificaColonia();
+	void moedasColonia(int x);
 };
 
 #endif

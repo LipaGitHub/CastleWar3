@@ -1,14 +1,25 @@
 #include"Personagem.h"
+
+int ID = 1;
+
 Personagem::Personagem() {
 
 }
-Personagem::Personagem(char id, int c=0, int s=10, int d=0) {
-	this->id_personagem = id;
+Personagem::Personagem(char nome, int c=0, int s=10, int d=0) {
+	this->identificador = ID++;
+	this->id_personagem = nome;
 	this->custo = c;
 	this->defesa = d;
 	this->saude = s;
 }
 
+Personagem::Personagem(char nome) {
+	this->identificador = ID++;
+	this->id_personagem = nome;
+	this->custo = 0;
+	this->defesa = 0;
+	this->saude = 0;
+}
 
 
 int Personagem::getSaude() {

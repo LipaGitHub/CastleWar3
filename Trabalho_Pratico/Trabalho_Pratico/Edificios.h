@@ -15,9 +15,8 @@ class Edificio: public Personagem{
 	//Representados pela letra do perfil e cor da colonia
 	Colonia* id_colonia;
 	string nome;
-	char id_e;
 public:
-	Edificio(string n, char id_e, int c, int s, int d);
+	Edificio(string n, char sigla, int c, int s, int d);
 
 	/*char getIdEdificio() { //Pode vir a ser necessario mas por enquanto nao
 		return id_e;
@@ -28,17 +27,17 @@ public:
 class Castelo: public Edificio{
 
 public:
-	Castelo() :Edificio("Castelo",'C',0, 50, 10) {}
+	Castelo();
 };
 
 class Quinta :public Edificio {
 public:
-	Quinta() :Edificio("Quinta",'Q',30,20,10) {}
+	Quinta();
 };
 
 class Torre : public Edificio {
 public:
-	Torre() :Edificio("Torre",'T',20,20,10){}
+	Torre(); 
 };
 
 #endif

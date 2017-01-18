@@ -2,10 +2,13 @@
 #include "Caracteristica.h"
 #include "Personagem.h"
 
-Seres::Seres(int f,int v, int a, vector<Caracteristica*> c ):Personagem() {
+Seres::Seres() :Personagem('S') {
 	this->forca = 10;
 	this->velocidade = 0;
 	this->ataque = 0;
+}
+Seres::Seres(vector<Caracteristica*> c ){
+	
 	this->s_carac = vector<Caracteristica *>();
 }
 

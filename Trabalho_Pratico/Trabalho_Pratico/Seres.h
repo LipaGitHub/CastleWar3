@@ -1,11 +1,11 @@
 
 #ifndef SERES_H
 #define SERES_H
-#include "Personagem.h"
+
 #include "Caracteristica.h"
 using namespace std;
 
-
+class Personagem;
 
 class Seres: public Personagem{
 
@@ -15,7 +15,7 @@ class Seres: public Personagem{
 	//Custo Somatorio das caracteristicas
 	//Representados pela letra do perfil e cor da colonia
 public:
-	//Seres() :Personagem(){ VER ISTO TEM QUE SER ASSIM
+	Seres():Personagem() { }//VER ISTO TEM QUE SER ASSIM
 	Seres(int f, int v, int a, vector<Caracteristica*>car);
 	void adicionaCaraSeres(Caracteristica *c);
 	Seres efeitoCaracteristica(Caracteristica *c);

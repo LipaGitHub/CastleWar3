@@ -1,6 +1,7 @@
 #pragma once
 #ifndef PERSONAGEM_H
 #define PERSONAGEM_H
+#include <iostream>
 using namespace std;
 
 class Personagem {
@@ -13,5 +14,8 @@ public:
 	int getDefesa();
 	int getCusto();
 	char getID();
+	virtual string toString()const {
+
+	}
 };
 #endif

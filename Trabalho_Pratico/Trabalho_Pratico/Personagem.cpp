@@ -9,6 +9,8 @@ Personagem::Personagem(char id, int c=0, int s=10, int d=0) {
 	this->saude = s;
 }
 
+
+
 int Personagem::getSaude() {
 	return saude;
 }

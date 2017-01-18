@@ -16,7 +16,7 @@ class Seres: public Personagem{
 	//Representados pela letra do perfil e cor da colonia
 public:
 	//Seres() :Personagem(){ VER ISTO TEM QUE SER ASSIM
-	Seres();
+	Seres(int f, int v, int a, vector<Caracteristica*>car);
 	void adicionaCaraSeres(Caracteristica *c);
 
 };

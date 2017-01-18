@@ -2,7 +2,7 @@
 Personagem::Personagem() {
 
 }
-Personagem::Personagem(char id, int c, int s, int d) {
+Personagem::Personagem(char id, int c=0, int s=10, int d=0) {
 	this->id_personagem = id;
 	this->custo = c;
 	this->defesa = d;

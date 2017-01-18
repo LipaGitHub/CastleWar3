@@ -57,7 +57,7 @@ void Planicie::removePerfil(char letra) {
 }
 void Planicie::criaColonia(int op) {
 	Colonia *colonia;
-	char abc = 'a';
+	char abc = 'A';
 
 	int valor = op + 1;
 	for (int i = 0; i < valor; i++, abc++) {

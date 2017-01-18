@@ -17,9 +17,9 @@ class Colonia {
 	//Economia de moedas
 	char id_colonia;
 	vector <Personagem*> eq_edificios;
-	vector <Seres*> eq_seres;
+	vector <Personagem*> eq_seres;
 	Castelo * castle;
-	Personagem *ser;
+	Seres * ser;
 	int cor;
 
 public:

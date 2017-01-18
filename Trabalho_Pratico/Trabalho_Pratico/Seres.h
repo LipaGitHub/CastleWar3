@@ -18,6 +18,6 @@ public:
 	//Seres() :Personagem(){ VER ISTO TEM QUE SER ASSIM
 	Seres(int f, int v, int a, vector<Caracteristica*>car);
 	void adicionaCaraSeres(Caracteristica *c);
-
+	Seres efeitoCaracteristica(Caracteristica *c);
 };
 #endif

@@ -38,16 +38,16 @@ int Colonia::getCor() {
 
 
 void Colonia::inserirSeres(int n, Perfil *p) {
-	Seres *s;
 	vector<Caracteristica *> c;
 	vector <Caracteristica*>::iterator iter;
 	
 	for (int i = 0; i < n; i++) {
-		s = new Seres();
+		ser = new Seres();
 		c = p->getCaracteristicas();
 		for (iter = c.begin();iter != c.end();iter++) {
-			s->adicionaCaraSeres(*iter);
+			ser->adicionaCaraSeres(*iter);
+			ser->efeitoCaracteristica(*iter);
 		}
-		eq_seres.push_back(s);
+		eq_seres.push_back(ser);
 	}
 }

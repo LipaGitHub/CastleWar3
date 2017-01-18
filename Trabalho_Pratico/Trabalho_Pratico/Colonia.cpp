@@ -40,7 +40,7 @@ int Colonia::getCor() {
 void Colonia::inserirSeres(int n, Perfil *p) {
 	Seres *s;
 	vector<Caracteristica *> c;
-
+	vector <Caracteristica*>::iterator iter;
 	
 	for (int i = 0; i < n; i++) {
 		s = new Seres();

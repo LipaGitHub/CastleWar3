@@ -9,6 +9,7 @@ class Perfil;
 class Personagem;
 class Castelo;
 class Caracteristica;
+class Seres;
 
 class Colonia {
 	//Contem um conjunto de seres e edificios
@@ -16,9 +17,7 @@ class Colonia {
 	//Economia de moedas
 	char id_colonia;
 	vector <Personagem*> eq_edificios;
-	vector <Personagem*> eq_seres;
-
-	vector <Caracteristica*>::iterator iter;
+	vector <Seres*> eq_seres;
 	Castelo * castle;
 	Personagem *ser;
 	int cor;

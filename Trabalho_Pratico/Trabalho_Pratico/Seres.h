@@ -3,9 +3,9 @@
 #define SERES_H
 
 #include "Caracteristica.h"
+#include "Personagem.h"
 using namespace std;
 
-class Personagem;
 
 class Seres: public Personagem{
 

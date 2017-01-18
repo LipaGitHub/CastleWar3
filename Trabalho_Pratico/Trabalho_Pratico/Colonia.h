@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef COLONIA_H
 #define COLONIA_H
 

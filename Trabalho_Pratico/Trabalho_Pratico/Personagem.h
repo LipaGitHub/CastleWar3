@@ -14,8 +14,8 @@ public:
 	int getDefesa();
 	int getCusto();
 	char getID();
-	virtual string toString()const {
+	/*virtual string toString()const {
 
-	}
+	}*/
 };
 #endif

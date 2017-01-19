@@ -35,7 +35,7 @@ public:
 	Perfil * procuraPerfil(char letra);
 	void procuraColonia(char col, int l, int c);
 	Colonia * getColonia(char id);
-	void posicionaCastle(Personagem* cas, int l, int c);
+	void posicionaPersonagem(Personagem* cas, int l, int c);
 	void imprimeMapa();
 	bool verificaColonia();
 	void moedasColonia(int x);

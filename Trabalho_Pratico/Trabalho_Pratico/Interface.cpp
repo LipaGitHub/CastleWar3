@@ -315,10 +315,12 @@ string Interface::interpretaComando(int tipo, string linha) {
 					//VERIFICAR SE O n E' MENOR QUE 1 (se for 0 nem vale a pena fazer o comando)
 					if (n >=1 && (p->procuraPerfil(perfil) !=nullptr) ) {
 						Perfil *per;
-						Colonia *c;
+
+						Colonia* c;
 						per = p->procuraPerfil(perfil);
 						c = p->getColonia(per->getIDPerfil());
 						c->inserirSeres(n, per);
+
 					}else {
 						if (n < 1) {
 							cout << "Valor invalido! Insira de novo!\n";
@@ -328,6 +330,21 @@ string Interface::interpretaComando(int tipo, string linha) {
 						}
 						return 0;
 					}
+				}
+				if (comando == "build") {
+					string nome;
+					int l,c;
+					Colonia * col;
+					vector<Personagem*> per;
+					iss >> nome;
+					iss >> l;
+					iss >> c;
+					col = p->getColonia('A');
+					col->criaEdificio(nome, l, c);
+					per = col->getEdificio();
+					for (int i = 1; i < per.size(); i++)
+						p->posicionaPersonagem(per[i], l, c);
+					this->Mapa();
 				}
 			}
 		}else{ 

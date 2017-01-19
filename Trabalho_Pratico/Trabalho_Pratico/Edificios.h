@@ -32,12 +32,12 @@ public:
 
 class Quinta :public Edificio {
 public:
-	Quinta();
+	Quinta(int x, int y);
 };
 
 class Torre : public Edificio {
 public:
-	Torre(); 
+	Torre(int x, int y); 
 };
 
 #endif

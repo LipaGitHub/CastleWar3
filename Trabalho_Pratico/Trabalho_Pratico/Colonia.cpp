@@ -16,6 +16,21 @@ void Colonia::criaCastelo(int x, int y) {
 	eq_edificios.push_back(castle);
 }
 
+void Colonia::criaEdificio(string nome, int x, int y) {
+	Edificio * ed;
+	if (nome == "quinta") {
+		ed = new Quinta(x, y);
+		eq_edificios.push_back(ed);
+		
+	}
+	else if (nome == "torre") {
+		ed = new Torre(x, y);
+		eq_edificios.push_back(ed);
+	}
+	
+}
+
+
 char Colonia::getId_colonia() {
 	return id_colonia;
 }
@@ -24,9 +39,13 @@ Personagem* Colonia::getCastelo() {
 	return castle;
 }
 
-/*Personagem* Colonia::getEdificio() {
+vector<Personagem*> Colonia::getSeres() {
+	return eq_seres;
+}
 
-}*/
+vector<Personagem*> Colonia::getEdificio() {
+	return eq_edificios;
+}
 
 /*Personagem* Colonia::getSer() {
 	ser = new Seres();
@@ -61,8 +80,16 @@ void Colonia::inserirSeres(int n, Perfil *p) {
 	}
 	else {
 		cout << "Saldo disponivel para efetuar operacao!\n";
+		Personagem *cas;
+		int x,y;
+		
+		cas = this->getCastelo();
+		x = cas->getX();
+		y = cas->getY();
 		for (int i = 0; i < n; i++) {
-			ser = new Seres();
+			ser = new Seres(x,y);
+			
+
 			if ((ser->getForca() - total_for) >= 0) {
 				cout << i+1 << ". Ser pode obter as caracterisitcas (forca)!\n";
 				forca_disp = ser->getForca() - total_for;
@@ -74,6 +101,7 @@ void Colonia::inserirSeres(int n, Perfil *p) {
 				saldo_disp = this->getSaldo() - (total_mon/n);
 				this->setSaldo(saldo_disp);
 				eq_seres.push_back(this->ser); //onde guarda a forca, velocidade e ataque??
+				cout << "X:" << ser->getX() << "Y:" << ser->getY() << "\n";
 			}
 			else {
 				cout << "O ser nao pode obter as caracterisitcas (forca)!\n";

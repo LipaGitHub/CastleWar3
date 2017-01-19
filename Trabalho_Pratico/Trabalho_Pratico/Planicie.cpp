@@ -78,11 +78,12 @@ void Planicie::criaColonia(int op,int x) {
 		int l = rand() % getLinha();
 		int c = rand() % getColuna();
 		colonias.push_back(new Colonia(abc, x, l,c));
-		posicionaCastle(colonias[i]->getCastelo(), l, c);
+		posicionaPersonagem(colonias[i]->getCastelo(), l, c);
 		//posicionaCastle((colonias->getCastelo()), l, c);
 	}
 
 }
+
 
 Perfil * Planicie::procuraPerfil(char letra) {
 	for (iter = perfis.begin(); iter != perfis.end(); iter++) {
@@ -94,16 +95,17 @@ Perfil * Planicie::procuraPerfil(char letra) {
 }
 
 void Planicie::procuraColonia(char col, int l, int c) { //Talvez para outras utilizãções
-	Colonia * colonia;
+	
 	for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
 		if ((*iter2)->getId_colonia() == col) {
-			posicionaCastle(((*iter2)->getCastelo()), l, c);
+			posicionaPersonagem(((*iter2)->getCastelo()), l, c);
 		}
 	}
 }
 
+
 Colonia * Planicie::getColonia(char id) {
-	Colonia * colonia;
+	
 	for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
 		if ((*iter2)->getId_colonia() == id) {
 			return *iter2;
@@ -113,16 +115,16 @@ Colonia * Planicie::getColonia(char id) {
 }
 
 void Planicie::moedasColonia(int x) {
-	Colonia * colonia;
+	
 	for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
 		(*iter2)->setSaldo(x);
 	}
 }
 
-void Planicie::posicionaCastle(Personagem* cas, int l, int c) { //ver o que se pode generalizar
+void Planicie::posicionaPersonagem(Personagem* p, int l, int c) { //ver o que se pode generalizar
 	
 	if (mapa[l][c] == NULL)
-		mapa[l][c] = cas;
+		mapa[l][c] = p ;
 }
 
 void Planicie::movePersonagem(Personagem* cas, int l, int c) {
@@ -142,7 +144,7 @@ void Planicie::movePersonagem(Personagem* cas, int l, int c) {
 }
 
 void Planicie::imprimeMapa() {
-	Colonia * colonia;
+	
 	Personagem *p;
 	int n_ocorrencias = 0;
 	for (int i = 0; i < getLinha(); i++) {

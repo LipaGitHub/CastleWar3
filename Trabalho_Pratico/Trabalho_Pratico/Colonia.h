@@ -25,9 +25,11 @@ class Colonia {
 public:
 	Colonia(char id, int x, int l, int c);
 	void criaCastelo(int x, int y);
+	void criaEdificio(string nome,int x, int y);
 	char getId_colonia();
 	Personagem* getCastelo();
-	Personagem* getEdificio();
+	vector <Personagem*> getEdificio();
+	vector<Personagem*> getSeres();
 	void setSaldo(int x);
 	//Personagem* getSer();
 	int getCor();

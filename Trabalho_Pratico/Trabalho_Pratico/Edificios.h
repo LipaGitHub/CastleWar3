@@ -16,7 +16,7 @@ class Edificio: public Personagem{
 	Colonia* id_colonia;
 	string nome;
 public:
-	Edificio(string n, char sigla, int c, int s, int d);
+	Edificio(string n, char sigla, int c, int s, int d, int x, int y);
 
 	/*char getIdEdificio() { //Pode vir a ser necessario mas por enquanto nao
 		return id_e;
@@ -27,7 +27,7 @@ public:
 class Castelo: public Edificio{
 
 public:
-	Castelo();
+	Castelo(int x, int y);
 };
 
 class Quinta :public Edificio {

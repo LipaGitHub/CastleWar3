@@ -6,8 +6,7 @@
 #include <time.h>
 
 Planicie::Planicie(const int l, const int c, int m, int o):linha(l), coluna(c), moedas(m), oponentes(o) {
-	//this->perfis = vector<Perfil *>();
-	criaMapa();
+		criaMapa();
 }
 
 int Planicie::getLinha() {
@@ -71,14 +70,14 @@ void Planicie::removePerfil(char letra) {
 
 }
 void Planicie::criaColonia(int op,int x) {
-	Colonia *colonia;
+	
 	char abc = 'A';
 	srand(time(NULL));
 	int valor = op + 1;
 	for (int i = 0; i < valor; i++, abc++) {
 		int l = rand() % getLinha();
 		int c = rand() % getColuna();
-		colonias.push_back(new Colonia(abc, x));
+		colonias.push_back(new Colonia(abc, x, l,c));
 		posicionaCastle(colonias[i]->getCastelo(), l, c);
 		//posicionaCastle((colonias->getCastelo()), l, c);
 	}
@@ -98,7 +97,7 @@ void Planicie::procuraColonia(char col, int l, int c) { //Talvez para outras uti
 	Colonia * colonia;
 	for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
 		if ((*iter2)->getId_colonia() == col) {
-			posicionaCastle((colonia->getCastelo()), l, c);
+			posicionaCastle(((*iter2)->getCastelo()), l, c);
 		}
 	}
 }
@@ -121,8 +120,25 @@ void Planicie::moedasColonia(int x) {
 }
 
 void Planicie::posicionaCastle(Personagem* cas, int l, int c) { //ver o que se pode generalizar
+	
 	if (mapa[l][c] == NULL)
 		mapa[l][c] = cas;
+}
+
+void Planicie::movePersonagem(Personagem* cas, int l, int c) {
+	int xaux, yaux;
+	xaux = cas->getX();
+	yaux = cas->getY();
+	for (int i = xaux; i <= xaux; i++)
+		for (int j = yaux; j <= yaux; j++)
+			mapa[i][j] = nullptr;
+
+
+	if (mapa[l][c] == NULL) {
+		mapa[l][c] = cas;
+		cas->setX(l);
+		cas->setY(c);
+	}
 }
 
 void Planicie::imprimeMapa() {

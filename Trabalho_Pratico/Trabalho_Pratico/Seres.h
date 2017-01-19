@@ -15,7 +15,7 @@ class Seres: public Personagem{
 	//Custo Somatorio das caracteristicas
 	//Representados pela letra do perfil e cor da colonia
 public:
-	Seres();//VER ISTO TEM QUE SER ASSIM
+	Seres(int x, int y);
 	Seres(vector<Caracteristica*>car);
 	void adicionaCaraSeres(Caracteristica *c);
 	Seres efeitoCaracteristica(Caracteristica *c);

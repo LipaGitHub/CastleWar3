@@ -23,8 +23,8 @@ class Colonia {
 	int cor, saldo;
 
 public:
-	Colonia(char id, int x);
-	void criaCastelo();
+	Colonia(char id, int x, int l, int c);
+	void criaCastelo(int x, int y);
 	char getId_colonia();
 	Personagem* getCastelo();
 	Personagem* getEdificio();

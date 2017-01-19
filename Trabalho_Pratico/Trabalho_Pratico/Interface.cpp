@@ -191,12 +191,14 @@ string Interface::interpretaComando(int tipo, string linha) {
 				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
 			}
 			if (comando == "castelo") {
+				Colonia *col;
 				if (p != nullptr) {
 					char colonia;
 					int l, c;
 					iss >> colonia;
 					iss >> l >> c;
-					p->procuraColonia(colonia, l, c);
+					col = p->getColonia(colonia);
+					p->movePersonagem(col->getCastelo(), l, c);
 					cout << "Castelo da colonia:" << colonia << "para:" << l << ";" << c;
 				}
 				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }

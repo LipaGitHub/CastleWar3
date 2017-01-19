@@ -39,6 +39,7 @@ public:
 	void imprimeMapa();
 	bool verificaColonia();
 	void moedasColonia(int x);
+	void movePersonagem(Personagem* per, int l, int c);
 };
 
 #endif

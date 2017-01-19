@@ -4,15 +4,15 @@
 #include "Seres.h"
 #include "Perfil.h"
 
-Colonia::Colonia(char id, int x) {
+Colonia::Colonia(char id, int x, int l, int c) {
 	this->id_colonia = id;
 	this->saldo = x;
 	this->cor = rand() % 16; //Numero da cor entre 0 e 15, aproveita-se o Consolas.h
-	criaCastelo();
+	criaCastelo(l,c);
 }
 
-void Colonia::criaCastelo() {
-	castle = new Castelo();
+void Colonia::criaCastelo(int x, int y) {
+	castle = new Castelo(x,y);
 	eq_edificios.push_back(castle);
 }
 

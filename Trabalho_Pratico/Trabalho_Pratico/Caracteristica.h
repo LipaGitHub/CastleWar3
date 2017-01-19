@@ -35,5 +35,7 @@ public:
 	int getIdCaracteristica();
 	string toString();
 	int efeitoCaracteristica(int id);
+	int getC_Mon();
+	int getC_For();
 };
 #endif

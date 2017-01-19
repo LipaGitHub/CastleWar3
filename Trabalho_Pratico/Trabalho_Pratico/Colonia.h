@@ -31,6 +31,9 @@ public:
 	void setSaldo(int x);
 	//Personagem* getSer();
 	int getCor();
+	int getSaldo();
 	void inserirSeres(int n, Perfil *p);
+	int custoMonCaracteristicas(Caracteristica *c);
+	int custoForCaracteristicas(Caracteristica *c);
 };
 #endif

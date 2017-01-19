@@ -37,3 +37,15 @@ int Personagem::getCusto() {
 char Personagem::getID() {
 	return id_personagem;
 }
+
+void Personagem::setSaude(int s) {
+	saude += s;
+}
+
+void Personagem::setDefesa(int d) {
+	defesa += d;
+}
+
+void Personagem::setCusto(int c) {
+	this->custo - c;
+}

@@ -16,6 +16,9 @@ public:
 	int getSaude();
 	int getDefesa();
 	int getCusto();
+	void setCusto(int c);
+	void setDefesa(int d);
+	void setSaude(int s);
 	char getID();
 	/*virtual string toString()const {
 

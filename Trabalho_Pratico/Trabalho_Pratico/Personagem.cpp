@@ -56,6 +56,7 @@ void Personagem::setX(int x){
 
 void Personagem::setY(int y) {
 	this->y = y;
+}
 
 void Personagem::setSaude(int s) {
 	saude += s;

@@ -56,4 +56,16 @@ void Personagem::setX(int x){
 
 void Personagem::setY(int y) {
 	this->y = y;
+
+void Personagem::setSaude(int s) {
+	saude += s;
+}
+
+void Personagem::setDefesa(int d) {
+	defesa += d;
+}
+
+void Personagem::setCusto(int c) {
+	this->custo - c;
+
 }

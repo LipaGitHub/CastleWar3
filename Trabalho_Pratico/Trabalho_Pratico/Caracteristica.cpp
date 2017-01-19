@@ -23,3 +23,11 @@ int Caracteristica::efeitoCaracteristica(int id) {
 		res[i] = carac[id - 1][i + 1];
 	return res[2];
 }
+
+int Caracteristica::getC_Mon(){
+	return c_mon;
+}
+
+int Caracteristica::getC_For(){
+	return c_for;
+}

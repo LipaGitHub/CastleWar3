@@ -25,7 +25,7 @@ void Seres::adicionaCaraSeres(Caracteristica *c) {
 	return false;
 }*/
 
-Seres Seres::efeitoCaracteristica(Caracteristica *c) {
+Seres Seres::efeitoCaracteristicaSim(Caracteristica *c) { // colocar na caracteristica, ser e que invoca, virtual
 
 	switch (c->getIdCaracteristica()){
 	case 1: break;

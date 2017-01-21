@@ -10,6 +10,7 @@ class Personagem;
 class Castelo;
 class Caracteristica;
 class Seres;
+class Planicie;
 
 class Colonia {
 	//Contem um conjunto de seres e edificios
@@ -34,7 +35,7 @@ public:
 	//Personagem* getSer();
 	int getCor();
 	int getSaldo();
-	void inserirSeres(int n, Perfil *p);
+	void inserirSeres(int n, Perfil *p, Planicie *plan);
 	int custoMonCaracteristicas(Caracteristica *c);
 	int custoForCaracteristicas(Caracteristica *c);
 };

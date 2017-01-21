@@ -143,6 +143,10 @@ void Planicie::movePersonagem(Personagem* cas, int l, int c) {
 	}
 }
 
+Personagem *** Planicie::retornaMapa() {
+	return mapa;
+}
+
 void Planicie::imprimeMapa() {
 	
 	Personagem *p;

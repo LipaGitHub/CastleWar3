@@ -1,6 +1,7 @@
 #include "Seres.h"
 #include "Caracteristica.h"
 #include "Personagem.h"
+#include "Planicie.h"
 
 Seres::Seres(int x, int y) :Personagem('S', x,y) {
 	this->forca = 10;
@@ -25,7 +26,13 @@ void Seres::adicionaCaraSeres(Caracteristica *c) {
 	return false;
 }*/
 
-Seres Seres::efeitoCaracteristicaSim(Caracteristica *c) { // colocar na caracteristica, ser e que invoca, virtual
+Seres Seres::efeitoCaracteristicaConfig(Planicie *plan) {
+	Caracteristica *c = nullptr;
+	c->efeitoCaracteristicaSim(this, plan);
+	return *this;
+}
+
+/*Seres Seres::efeitoCaracteristicaSim(Caracteristica *c) { // colocar na caracteristica, ser e que invoca, virtual
 
 	switch (c->getIdCaracteristica()){
 	case 1: break;
@@ -57,9 +64,9 @@ Seres Seres::efeitoCaracteristicaSim(Caracteristica *c) { // colocar na caracter
 	}
 	else if (c->getIdCaracteristica() == 2) {
 		velocidade = velocidade + 2;
-	}*/
+	}
 	return *this;
-}
+}*/
 
 int Seres::getForca(){
 	return forca;
@@ -73,6 +80,43 @@ int Seres::getContadorRem(){
 	return contador_remedio;
 }
 
-void Seres::setContadorRem(int x){
-	contador_remedio = x;
+void Seres::setContadorEsp(int x) {
+	this->contador_esp -= x;
 }
+
+void Seres::setContadorRem(int x) {
+	this->contador_remedio -= x;
+}
+
+int Seres::getAtaque() {
+	return ataque;
+}
+
+int Seres::getVelocidade() {
+	return velocidade;
+}
+
+void Seres::setAtaque(int x) {
+	this->ataque += x;
+}
+
+void Seres::setVelocidade(int x) {
+	this->velocidade += x;
+}
+
+char Seres::getBandeira() {
+	return bandeira;
+}
+
+void Seres::setBandeira(char x) {
+	this->bandeira = x;
+}
+
+vector<Caracteristica*> Seres::retornaCarS() {
+	return s_carac;
+}
+
+int Seres::getContadorEsp() {
+	return contador_esp;
+}
+

@@ -319,7 +319,7 @@ string Interface::interpretaComando(int tipo, string linha) {
 						Colonia* c;
 						per = p->procuraPerfil(perfil);
 						c = p->getColonia(per->getIDPerfil());
-						c->inserirSeres(n, per);
+						c->inserirSeres(n, per, p);
 
 					}else {
 						if (n < 1) {

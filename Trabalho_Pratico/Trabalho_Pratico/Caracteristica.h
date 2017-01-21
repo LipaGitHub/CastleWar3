@@ -6,6 +6,8 @@
 using namespace std;
 
 class Personagem;
+class Seres;
+class Planicie;
 
 class Caracteristica {
 	string nome;
@@ -34,7 +36,8 @@ public:
 	Caracteristica(int id);
 	int getIdCaracteristica();
 	string toString();
-	int efeitoCaracteristica(int id);
+	//int efeitoCaracteristica(int id);
+	void efeitoCaracteristicaSim(Seres *s, Planicie *plan);
 	int getC_Mon();
 	int getC_For();
 };

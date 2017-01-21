@@ -3,6 +3,7 @@
 #include "Edificios.h"
 #include "Seres.h"
 #include "Perfil.h"
+#include "Planicie.h"
 
 Colonia::Colonia(char id, int x, int l, int c) {
 	this->id_colonia = id;
@@ -61,7 +62,7 @@ int Colonia::getSaldo(){
 }
 
 
-void Colonia::inserirSeres(int n, Perfil *p) {
+void Colonia::inserirSeres(int n, Perfil *p, Planicie *plan) {
 	vector<Caracteristica *> c;
 	vector <Caracteristica*>::iterator iter;
 	int total_mon = 0, total_for = 0, saldo_disp = 0, forca_disp = 0;
@@ -96,10 +97,11 @@ void Colonia::inserirSeres(int n, Perfil *p) {
 				ser->setForca(forca_disp);
 				for (iter = c.begin(); iter != c.end(); iter++) {
 					ser->adicionaCaraSeres(*iter);
-					ser->efeitoCaracteristica(*iter);
 				}
 				saldo_disp = this->getSaldo() - (total_mon/n);
 				this->setSaldo(saldo_disp);
+				//Personagem*** mapa = plan->retornaMapa();
+				ser->efeitoCaracteristicaConfig(plan);
 				eq_seres.push_back(this->ser); //onde guarda a forca, velocidade e ataque??
 				cout << "X:" << ser->getX() << "Y:" << ser->getY() << "\n";
 			}

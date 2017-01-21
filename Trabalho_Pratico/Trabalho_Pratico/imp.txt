@@ -5,5 +5,7 @@ mkperfil A
 mkperfil B
 addperfil A 1
 addperfil A 2
-addperfil A 13
-addperfil A 13
+addperfil A 6
+addperfil A 6
+addperfil A 6
+addperfil A 7

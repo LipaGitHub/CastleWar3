@@ -154,14 +154,43 @@ Personagem *** Planicie::retornaMapa() {
 	return mapa;
 }
 
+void Planicie::recolheSer(Personagem * per, Personagem *cas){
+	if (cas->getX() == per->getX() && cas->getY() == per->getY()) {
+		//E PORQUE ESTA NO CASTELO
+		per->setSaude(1);
+	}
+	else {
+		//ANDA UM PASSO DIRECAO CASTELO -- FALTA FAZER
+	}
+
+}
+
+void Planicie::ataca(Personagem * per){
+	Caracteristica *c;
+	per->setX(1);
+	per->setY(1);
+	cout << "X: " << per->getX() << "Y: " << per->getY() << "\n";
+	movePersonagem(per, per->getX(), per->getY());
+	//c->efeitoCaracteristicaSim(per, this);
+}
+
 void Planicie::imprimeMapa() {
 	Personagem *p;
 	for (int i = 0; i < getLinha(); i++) {
 		for (int j = 0; j < getColuna(); j++) {
 			if (mapa[i][j] != NULL) {
-				p = colonias[mapa[i][j]->getIdentificador()-1]->getCastelo();
-				Consola::setTextColor(colonias[mapa[i][j]->getIdentificador() - 1]->getCor());
-				cout << p->getID() << "\t";
+				if (mapa[i][j]->getID() == 'C') {
+					p = colonias[mapa[i][j]->getIdentificador() - 1]->getCastelo();
+					Consola::setTextColor(colonias[mapa[i][j]->getIdentificador() - 1]->getCor());
+					cout << p->getID() << "\t";
+				}
+				else
+				{
+					if (mapa[i][j]->getID() == 'S') {
+						Consola::setTextColor(colonias[0]->getCor());
+						cout << mapa[i][j]->getID() << "\t";
+					}
+				}
 			}
 			else {
 				Consola::setTextColor(Consola::VERDE_CLARO);

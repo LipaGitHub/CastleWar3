@@ -78,7 +78,6 @@ void Colonia::inserirSeres(int n, Perfil *p, Planicie *plan) {
 	}
 
 	total_mon = total_mon * n;
-	//total_for = total_for * n;
 
 	if (total_mon >= this->getSaldo()) {
 		cout << "Saldo inferior ao custo das caracteristicas! Diminui na criacao dos Seres ou nas caracteristicas.\n";
@@ -112,6 +111,7 @@ void Colonia::inserirSeres(int n, Perfil *p, Planicie *plan) {
 			}
 			else {
 				cout << "O ser nao pode obter as caracterisitcas (forca)!\n";
+				//FALTA O DESTRUTOR DO SER CASO NAO POSSA SER CRIADO DEVIDO AO CUSTO DAS CARAC
 			}
 		}
 	}

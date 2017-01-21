@@ -29,17 +29,6 @@ string Caracteristica::toString() {
 void Caracteristica::efeitoCaracteristicaSim(Seres *s, Planicie *plan) {
 	int x, y;
 	Personagem*** mat = plan->retornaMapa();
-	/*for (int i = 0; i < plan->getLinha(); i++) {
-		for (int j = 0; j < plan->getColuna(); j++) {
-			if (mat[i][j] != NULL) {
-				cout << "O\t";
-			}
-			else {
-				cout << "X\t";
-			}
-		}
-		cout << "\n";
-	}*/
 
 	for (auto i : s->retornaCarS()) {
 		switch (i->getIdCaracteristica()) {
@@ -126,7 +115,7 @@ void Caracteristica::efeitoCaracteristicaSim(Seres *s, Planicie *plan) {
 			y = rand() % (1 - (-1) + 1) + (-1);
 			cout << "X: " << x << "Y: " << y << "\n";
 			plan->movePersonagem(s, s->getX() - x, s->getY() - y);
-			plan->imprimeMapa();
+			//plan->imprimeMapa();
 
 			/*if (s->getX() + x >= 1 && s->getX() + x < plan->getLinha() - 1
 				&& s->getY() + y >= 1 && y < plan->getColuna() - 1) {

@@ -346,6 +346,25 @@ string Interface::interpretaComando(int tipo, string linha) {
 						p->posicionaPersonagem(per[i], l, c);
 					this->Mapa();
 				}
+				if (comando == "ataca") {
+					Colonia * col;
+					vector <Personagem*> eq_seres;
+					col = p->getColonia('A');
+					eq_seres = col->getSeres();
+					for (int i = 0; i < eq_seres.size(); i++)
+						p->ataca(eq_seres[i]);
+					p->imprimeMapa();
+				}
+				if (comando == "recolhe") {
+					Colonia * col;
+					Personagem * c;
+					vector <Personagem*> eq_seres;
+					col = p->getColonia('A');
+					c = col->getCastelo();
+					eq_seres = col->getSeres();
+					for (int i = 0; i < eq_seres.size(); i++)
+						p->recolheSer(eq_seres[i], c);
+				}
 			}
 		}else{ 
 			cout << "Comando nao existe !\n";

@@ -6,6 +6,4 @@ mkperfil B
 addperfil A 1
 addperfil A 2
 addperfil A 6
-addperfil A 11
-addperfil A 6
 addperfil A 7

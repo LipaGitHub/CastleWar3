@@ -3,6 +3,7 @@
 #include "Personagem.h"
 #include "Planicie.h"
 #include "Consola.h"
+#include "Seres.h"
 #include <time.h>
 
 Planicie::Planicie(const int l, const int c, int m, int o):linha(l), coluna(c), moedas(m), oponentes(o) {
@@ -154,10 +155,17 @@ Personagem *** Planicie::retornaMapa() {
 	return mapa;
 }
 
-void Planicie::recolheSer(Personagem * per, Personagem *cas){
+void Planicie::recolheSer(Personagem * per, Personagem *cas, Colonia *c){
+	vector <Personagem*> eq_seres;
+	Seres *s;
 	if (cas->getX() == per->getX() && cas->getY() == per->getY()) {
 		//E PORQUE ESTA NO CASTELO
 		per->setSaude(1);
+		eq_seres = this->colonias[0]->getSeres();
+		if (per->getID() == eq_seres[0]->getID()) {
+			s = colonias[0]->retornaSer();
+			s->resetContadorEsp(2);
+		}
 	}
 	else {
 		//ANDA UM PASSO DIRECAO CASTELO -- FALTA FAZER
@@ -169,6 +177,7 @@ void Planicie::ataca(Personagem * per){
 	Caracteristica *c;
 	per->setX(1);
 	per->setY(1);
+
 	cout << "X: " << per->getX() << "Y: " << per->getY() << "\n";
 	movePersonagem(per, per->getX(), per->getY());
 	//c->efeitoCaracteristicaSim(per, this);

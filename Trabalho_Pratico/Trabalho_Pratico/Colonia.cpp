@@ -44,6 +44,10 @@ vector<Personagem*> Colonia::getSeres() {
 	return eq_seres;
 }
 
+Seres * Colonia::retornaSer(){
+	return ser;
+}
+
 vector<Personagem*> Colonia::getEdificio() {
 	return eq_edificios;
 }

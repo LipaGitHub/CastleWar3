@@ -9,10 +9,10 @@ using namespace std;
 
 
 class Seres: public Personagem{
-
+	int id;
 	int forca, velocidade, ataque;
 	vector<Caracteristica* > s_carac;
-	int contador_esp, contador_remedio;
+	int contador_esp, contador_remedio, castelo;
 	char bandeira;
 	//Possuem caracteristicas
 	//Custo Somatorio das caracteristicas
@@ -28,6 +28,7 @@ public:
 	vector<Caracteristica* > retornaCarS();
 	int getContadorEsp();
 	int getContadorRem();
+	void resetContadorEsp(int x);
 	void setContadorEsp(int x);
 	void setContadorRem(int x);
 	int getAtaque();
@@ -36,5 +37,7 @@ public:
 	void setVelocidade(int x);
 	char getBandeira();
 	void setBandeira(char x);
+	int getDentroCastelo();
+	void setDentroCastelo(int x);
 };
 #endif

@@ -359,11 +359,15 @@ string Interface::interpretaComando(int tipo, string linha) {
 					Colonia * col;
 					Personagem * c;
 					vector <Personagem*> eq_seres;
+					vector <Personagem*>::iterator iter;
 					col = p->getColonia('A');
 					c = col->getCastelo();
 					eq_seres = col->getSeres();
-					for (int i = 0; i < eq_seres.size(); i++)
-						p->recolheSer(eq_seres[i], c);
+					for (iter = eq_seres.begin(); iter != eq_seres.end(); iter++) {
+						p->recolheSer(*iter, c, col);
+					}
+					/*for (int i = 0; i < eq_seres.size(); i++)
+						p->recolheSer(eq_seres[i], c, col);*/
 				}
 			}
 		}else{ 

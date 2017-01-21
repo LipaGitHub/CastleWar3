@@ -7,6 +7,7 @@
 #include <iostream>
 class Colonia;
 class Personagem;
+class Seres;
 using namespace std;
 
 class Planicie {
@@ -41,7 +42,7 @@ public:
 	void moedasColonia(int x);
 	void movePersonagem(Personagem* per, int l, int c);
 	Personagem*** retornaMapa();
-	void recolheSer(Personagem* per, Personagem *cas);
+	void recolheSer(Personagem* per, Personagem *cas, Colonia *c);
 	void ataca(Personagem* per);
 };
 

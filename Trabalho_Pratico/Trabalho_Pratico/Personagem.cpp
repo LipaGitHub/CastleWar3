@@ -62,6 +62,10 @@ void Personagem::setY(int y) {
 	this->y = y;
 }
 
+Seres * Personagem::procuraSer(int x){
+	return nullptr;
+}
+
 void Personagem::setSaude(int s) {
 	saude += s;
 }

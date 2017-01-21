@@ -31,6 +31,7 @@ public:
 	Personagem* getCastelo();
 	vector <Personagem*> getEdificio();
 	vector<Personagem*> getSeres();
+	Seres * retornaSer();
 	void setSaldo(int x);
 	//Personagem* getSer();
 	void setCor(int x);

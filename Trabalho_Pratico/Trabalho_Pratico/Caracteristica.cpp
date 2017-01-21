@@ -41,10 +41,10 @@ void Caracteristica::efeitoCaracteristicaSim(Seres *s, Planicie *plan) {
 			s->setContadorEsp(1);
 			s->setAtaque(3);
 		}
-				else { s->setAtaque(2); } break;//TODO: QUANDO VOLTAR AO CASTELO, POR O CONTADOR_ESP A 2
+				else { s->setAtaque(2); } break; //DONE
 		case 7:
 			x = s->getX(); y = s->getY();
-			if (mat[x - 1][y - 1] != NULL || mat[x - 1][y] != NULL || mat[x - 1][y + 1] != NULL ||
+			/*if (mat[x - 1][y - 1] != NULL || mat[x - 1][y] != NULL || mat[x - 1][y + 1] != NULL ||
 				mat[x][y - 1] != NULL || mat[x][y + 1] != NULL || mat[x + 1][y - 1] != NULL ||
 				mat[x + 1][y] != NULL || mat[x + 1][y + 1] != NULL) {
 				if ((mat[x - 1][y - 1]->getID() == 'S' || mat[x - 1][y]->getID() == 'S' || mat[x - 1][y + 1]->getID() == 'S' ||
@@ -53,7 +53,7 @@ void Caracteristica::efeitoCaracteristicaSim(Seres *s, Planicie *plan) {
 					//TEM DE ATAQUAR
 					cout << "Inimigo encontrado!\n"; break;//FALTA COMPARAR SE TRATA DA MESMA COLONIA/BANDEIRA OU NAO
 				}
-			}
+			}*/
 			/*if (x == 0 && y < plan->getColuna() - 1 && y != 0) {
 				if (mat[x + 1][y - 1]->getID() == 'S') { cout << "Inimigo encontrado\n"; break; }
 				if (mat[x + 1][y + 1]->getID() == 'S') { cout << "Inimigo encontrado\n"; break; }

@@ -10,6 +10,7 @@ Seres::Seres(int x, int y) :Personagem('S', x,y) {
 	this->contador_esp = 2;
 	this->contador_remedio = 1;
 	this->bandeira = ' ';
+	this->castelo = 1;
 }
 Seres::Seres(vector<Caracteristica*> c ){
 	
@@ -81,6 +82,10 @@ int Seres::getContadorRem(){
 	return contador_remedio;
 }
 
+void Seres::resetContadorEsp(int x) {
+	this->contador_esp = x;
+}
+
 void Seres::setContadorEsp(int x) {
 	this->contador_esp -= x;
 }
@@ -111,6 +116,14 @@ char Seres::getBandeira() {
 
 void Seres::setBandeira(char x) {
 	this->bandeira = x;
+}
+
+int Seres::getDentroCastelo(){
+	return castelo;
+}
+
+void Seres::setDentroCastelo(int x){
+	this->castelo = x;
 }
 
 vector<Caracteristica*> Seres::retornaCarS() {

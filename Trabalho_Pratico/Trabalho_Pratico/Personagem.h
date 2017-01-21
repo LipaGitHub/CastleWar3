@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-
+class Seres;
 class Personagem {
 	char id_personagem;
 	int identificador;
@@ -26,6 +26,7 @@ public:
 	int getY();
 	void setX(int x);
 	void setY(int y);
+	Seres * procuraSer(int x);
 	/*virtual string toString()const {
 
 	}*/

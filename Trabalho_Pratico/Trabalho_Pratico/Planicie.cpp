@@ -70,14 +70,21 @@ void Planicie::removePerfil(char letra) {
 
 }
 void Planicie::criaColonia(int op,int x) {
-	
 	char abc = 'A';
 	srand(time(NULL));
 	int valor = op + 1;
+	int cores_u[16];
 	for (int i = 0; i < valor; i++, abc++) {
 		int l = rand() % getLinha();
 		int c = rand() % getColuna();
 		colonias.push_back(new Colonia(abc, x, l,c));
+		for (int j = 0; j < i; j++) {
+			while (cores_u[j] == colonias[i]->getCor()) {
+				colonias[i]->setCor(rand() % 16);
+			}
+		}
+
+		cores_u[i] = colonias[i]->getCor();
 		posicionaPersonagem(colonias[i]->getCastelo(), l, c);
 		//posicionaCastle((colonias->getCastelo()), l, c);
 	}
@@ -158,7 +165,7 @@ void Planicie::imprimeMapa() {
 			}
 			else {
 				Consola::setTextColor(Consola::VERDE_CLARO);
-				cout << "X\t";
+				cout << " \t";
 			}
 		}
 		cout << "\n";

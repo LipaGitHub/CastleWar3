@@ -33,6 +33,7 @@ public:
 	vector<Personagem*> getSeres();
 	void setSaldo(int x);
 	//Personagem* getSer();
+	void setCor(int x);
 	int getCor();
 	int getSaldo();
 	void inserirSeres(int n, Perfil *p, Planicie *plan);

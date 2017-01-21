@@ -53,6 +53,10 @@ vector<Personagem*> Colonia::getEdificio() {
 	return ser;
 }*/
 
+void Colonia::setCor(int x) {
+	cor = x;
+}
+
 int Colonia::getCor() {
 	return cor;
 }

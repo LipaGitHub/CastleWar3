@@ -9,6 +9,7 @@ Seres::Seres(int x, int y) :Personagem('S', x,y) {
 	this->ataque = 0;
 	this->contador_esp = 2;
 	this->contador_remedio = 1;
+	this->bandeira = ' ';
 }
 Seres::Seres(vector<Caracteristica*> c ){
 	

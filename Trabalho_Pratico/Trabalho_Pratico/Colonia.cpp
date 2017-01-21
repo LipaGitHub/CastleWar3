@@ -93,6 +93,7 @@ void Colonia::inserirSeres(int n, Perfil *p, Planicie *plan) {
 
 			if ((ser->getForca() - total_for) >= 0) {
 				cout << i+1 << ". Ser pode obter as caracterisitcas (forca)!\n";
+				ser->setBandeira(this->getId_colonia());
 				forca_disp = ser->getForca() - total_for;
 				ser->setForca(forca_disp);
 				for (iter = c.begin(); iter != c.end(); iter++) {

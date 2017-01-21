@@ -43,11 +43,11 @@ void Caracteristica::efeitoCaracteristicaSim(Seres *s, Planicie *plan) {
 
 	for (auto i : s->retornaCarS()) {
 		switch (i->getIdCaracteristica()) {
-		case 1: /*s->setBandeira('A');*/ break;
-		case 2: s->setSaude(1); break;
-		case 3: s->setDefesa(1); break;
-		case 4: s->setDefesa(2); break;
-		case 5: s->setAtaque(2); break;
+		case 1: break; //DONE
+		case 2: s->setSaude(1); break; //DONE
+		case 3: s->setDefesa(1); break; //DONE
+		case 4: s->setDefesa(2); break; //DONE
+		case 5: s->setAtaque(1); break; //DONE
 		case 6: if (s->getContadorEsp() > 0) {
 			s->setContadorEsp(1);
 			s->setAtaque(3);
@@ -58,11 +58,11 @@ void Caracteristica::efeitoCaracteristicaSim(Seres *s, Planicie *plan) {
 			if (mat[x - 1][y - 1] != NULL || mat[x - 1][y] != NULL || mat[x - 1][y + 1] != NULL ||
 				mat[x][y - 1] != NULL || mat[x][y + 1] != NULL || mat[x + 1][y - 1] != NULL ||
 				mat[x + 1][y] != NULL || mat[x + 1][y + 1] != NULL) {
-				if (mat[x - 1][y - 1]->getID() == 'S' || mat[x - 1][y]->getID() == 'S' || mat[x - 1][y + 1]->getID() == 'S' ||
+				if ((mat[x - 1][y - 1]->getID() == 'S' || mat[x - 1][y]->getID() == 'S' || mat[x - 1][y + 1]->getID() == 'S' ||
 					mat[x][y - 1]->getID() == 'S' || mat[x][y + 1]->getID() == 'S' || mat[x + 1][y - 1]->getID() == 'S' ||
-					mat[x + 1][y]->getID() == 'S' || mat[x + 1][y + 1]->getID() == 'S') {
+					mat[x + 1][y]->getID() == 'S' || mat[x + 1][y + 1]->getID() == 'S')) {
 					//TEM DE ATAQUAR
-					cout << "Inimigo encontrado!\n"; break;//FALTA COMPARAR SE TRATA DA MESMA COLONIA OU NAO
+					cout << "Inimigo encontrado!\n"; break;//FALTA COMPARAR SE TRATA DA MESMA COLONIA/BANDEIRA OU NAO
 				}
 			}
 			/*if (x == 0 && y < plan->getColuna() - 1 && y != 0) {
@@ -122,7 +122,25 @@ void Caracteristica::efeitoCaracteristicaSim(Seres *s, Planicie *plan) {
 		case 9: break;
 		case 10: break;
 		case 11: //ATRIBUIR X E Y AO PERSONAGEM RANDOM
+			x = rand() % (1 - (-1) + 1) + (-1);
+			y = rand() % (1 - (-1) + 1) + (-1);
+			cout << "X: " << x << "Y: " << y << "\n";
+			plan->movePersonagem(s, s->getX() - x, s->getY() - y);
+			plan->imprimeMapa();
 
+			/*if (s->getX() + x >= 1 && s->getX() + x < plan->getLinha() - 1
+				&& s->getY() + y >= 1 && y < plan->getColuna() - 1) {
+				s->setX(s->getX()+x); s->setY(s->getY() + y);
+			}
+
+			if (s->getX() >= 1 && s->getX() < plan->getLinha() - 1) {
+				s->setX(s->getX() - x); s->setY(s->getY() - y);
+			}
+			else {
+				if (s->getX() == 0 && s->getY() >= 1 && s->getY() < plan->getColuna() - 1) {
+					s->setY(s->getX() - y);
+				}
+			}*/
 			break;
 		case 12: if (s->getSaude() <= 3) {
 			if (s->getContadorRem() == 1) {

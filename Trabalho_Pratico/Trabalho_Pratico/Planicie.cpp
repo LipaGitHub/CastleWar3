@@ -148,16 +148,13 @@ Personagem *** Planicie::retornaMapa() {
 }
 
 void Planicie::imprimeMapa() {
-	
 	Personagem *p;
-	int n_ocorrencias = 0;
 	for (int i = 0; i < getLinha(); i++) {
 		for (int j = 0; j < getColuna(); j++) {
 			if (mapa[i][j] != NULL) {
-				p = colonias[n_ocorrencias]->getCastelo();
-				Consola::setTextColor(colonias[n_ocorrencias]->getCor());
+				p = colonias[mapa[i][j]->getIdentificador()-1]->getCastelo();
+				Consola::setTextColor(colonias[mapa[i][j]->getIdentificador() - 1]->getCor());
 				cout << p->getID() << "\t";
-				n_ocorrencias++;
 			}
 			else {
 				Consola::setTextColor(Consola::VERDE_CLARO);

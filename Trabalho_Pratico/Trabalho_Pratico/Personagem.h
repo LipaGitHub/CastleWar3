@@ -21,6 +21,7 @@ public:
 	void setDefesa(int d);
 	void setSaude(int s);
 	char getID();
+	int getIdentificador();
 	int getX();
 	int getY();
 	void setX(int x);

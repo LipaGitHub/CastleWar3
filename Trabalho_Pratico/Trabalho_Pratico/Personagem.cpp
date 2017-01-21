@@ -42,6 +42,10 @@ char Personagem::getID() {
 	return id_personagem;
 }
 
+int Personagem::getIdentificador() {
+	return identificador;
+}
+
 int Personagem::getX() {
 	return x;
 }

@@ -15,7 +15,7 @@ int Caracteristica::getIdCaracteristica() {
 
 string Caracteristica::toString() {
 	ostringstream os;
-	os << " ID: " << id << ", Custo monetario: " << c_mon << ", Custo forca : " << c_for;
+	os << " ID: " << id << ", Nome: " << nome <<", Custo monetario: " << c_mon << ", Custo forca : " << c_for<<"\n";
 	return os.str();
 }
 

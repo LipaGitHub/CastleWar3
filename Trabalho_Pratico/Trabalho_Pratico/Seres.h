@@ -9,16 +9,15 @@ using namespace std;
 
 
 class Seres: public Personagem{
-	int id;
 	int forca, velocidade, ataque;
 	vector<Caracteristica* > s_carac;
 	int contador_esp, contador_remedio, castelo;
-	char bandeira;
+	char bandeira, perfil;
 	//Possuem caracteristicas
 	//Custo Somatorio das caracteristicas
 	//Representados pela letra do perfil e cor da colonia
 public:
-	Seres(int x, int y);
+	Seres(int x, int y, char perfil);
 	Seres(vector<Caracteristica*>car);
 	void adicionaCaraSeres(Caracteristica *c);
 	//bool verificaCustos(int custo_m, int custo_f, Seres *s);
@@ -39,5 +38,13 @@ public:
 	void setBandeira(char x);
 	int getDentroCastelo();
 	void setDentroCastelo(int x);
+	virtual string toString()const {
+		ostringstream os;
+		os << Personagem::toString();
+		os <<  "Forca:" << forca << "\t" << "Velocidade:"<<velocidade <<"\t"<< "Ataque:"<< ataque << "\t"<<
+			"Perfil "<< perfil <<endl;
+		
+		return os.str();
+	}
 };
 #endif

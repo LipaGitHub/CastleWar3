@@ -13,6 +13,14 @@ Planicie::Planicie(const int l, const int c, int m, int o):linha(l), coluna(c), 
 int Planicie::getLinha() {
 	return linha;
 }
+bool Planicie::verificaPerfil(char letra) {
+	for (int i = 0; i < perfis.size(); i++) {
+		if ((perfis[i]->getIDPerfil() )== letra)
+			return true;
+			
+	}
+	return false;
+}
 
 int Planicie::getColuna() {
 	return coluna;
@@ -102,6 +110,19 @@ Perfil * Planicie::procuraPerfil(char letra) {
 	return nullptr;
 }
 
+void Planicie::imprimePerfil(char perfil) {
+	Perfil *p;
+	p = procuraPerfil(perfil);
+	p->mostraPerfil();
+
+}
+void Planicie::imprimePerfil() {
+	for (int i = 0; i < perfis.size(); i++) {
+		perfis[i]->mostraPerfil();
+	}
+	
+}
+
 void Planicie::procuraColonia(char col, int l, int c) { //Talvez para outras utilizãções
 	
 	for (iter2 = colonias.begin(); iter2 != colonias.end(); iter2++) {
@@ -187,6 +208,39 @@ void Planicie::imprimeMapa() {
 	Personagem *p;
 	for (int i = 0; i < getLinha(); i++) {
 		for (int j = 0; j < getColuna(); j++) {
+			if (mapa[i][j] != NULL) {
+				if (mapa[i][j]->getID() == 'C') {
+					p = colonias[mapa[i][j]->getIdentificador() - 1]->getCastelo();
+					Consola::setTextColor(colonias[mapa[i][j]->getIdentificador() - 1]->getCor());
+					cout << p->getID() << "\t";
+				}
+				else
+				{
+					if (mapa[i][j]->getID() == 'S') {
+						Consola::setTextColor(colonias[0]->getCor());
+						cout << mapa[i][j]->getID() << "\t";
+					}
+				}
+			}
+			else {
+				Consola::setTextColor(Consola::VERDE_CLARO);
+				cout << " \t";
+			}
+		}
+		cout << "\n";
+	}
+	for (auto c : colonias) {
+		Consola::setTextColor(c->getCor());
+		cout << "Colonia " << c->getId_colonia() << "\n";
+	}
+	Consola::setTextColor(Consola::VERDE_CLARO);
+}
+
+void Planicie::imprimeMapaFoco(int linha, int coluna) {
+	Personagem *p;
+	
+	for (int i = 0; i < linha; i++) {
+		for (int j = 0; j < coluna; j++) {
 			if (mapa[i][j] != NULL) {
 				if (mapa[i][j]->getID() == 'C') {
 					p = colonias[mapa[i][j]->getIdentificador() - 1]->getCastelo();

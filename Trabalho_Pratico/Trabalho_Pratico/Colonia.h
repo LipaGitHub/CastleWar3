@@ -40,5 +40,8 @@ public:
 	void inserirSeres(int n, Perfil *p, Planicie *plan);
 	int custoMonCaracteristicas(Caracteristica *c);
 	int custoForCaracteristicas(Caracteristica *c);
+	void printSer();
 };
+
+ostream & operator<<(ostream &o, Colonia &c);
 #endif

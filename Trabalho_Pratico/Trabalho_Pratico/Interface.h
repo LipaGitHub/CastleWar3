@@ -35,4 +35,6 @@ public:
 	bool verificaComando(int tipo, string comando);
 	void Mapa();
 };
+
+
 #endif

@@ -69,12 +69,28 @@ int Colonia::getSaldo(){
 	return saldo;
 }
 
+ostream & operator<<(ostream &o, Colonia &c) {
+	o << "Saldo:" << c.getSaldo();
+	//o << p.getX() << "," << p.getY() << ") \n";
+	return o;
+}
+void Colonia::printSer() {
+	cout << "Saldo:" << this->saldo << "\n";
+	for (int i = 0; i < eq_edificios.size(); i++) {
+		cout << eq_edificios[i]->toString() << endl;
+	}
+	for (int i = 0; i < eq_seres.size(); i++) {
+		cout << eq_seres[i]->toString() << endl;
+	}
+}
+
 
 void Colonia::inserirSeres(int n, Perfil *p, Planicie *plan) {
 	vector<Caracteristica *> c;
 	vector <Caracteristica*>::iterator iter;
 	int total_mon = 0, total_for = 0, saldo_disp = 0, forca_disp = 0;
-
+	char nome;
+	nome = p->getIDPerfil();
 	c = p->getCaracteristicas();
 	for (iter = c.begin(); iter != c.end(); iter++) {
 		total_mon += custoMonCaracteristicas(*iter);
@@ -95,7 +111,7 @@ void Colonia::inserirSeres(int n, Perfil *p, Planicie *plan) {
 		x = cas->getX();
 		y = cas->getY();
 		for (int i = 0; i < n; i++) {
-			ser = new Seres(x,y);
+			ser = new Seres(x,y, nome);
 			
 
 			if ((ser->getForca() - total_for) >= 0) {

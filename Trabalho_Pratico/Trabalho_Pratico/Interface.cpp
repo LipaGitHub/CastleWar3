@@ -123,7 +123,7 @@ void Interface::le_comandos(int tipo) {
 
 bool Interface::verificaComando(int tipo, string comando){
 	string comandosC[10] = { "dim", "moedas","oponentes","castelo","mkperfil","addperfil","subperfil","rmperfil","load", "inicio" };
-	string comandosS[20] = { "zoomout","setmoedas","build","list","listp","listallp","mkbuild","repair","upgrade","sell",
+	string comandosS[21] = { "foco","zoomout","setmoedas","build","list","listp","listallp","mkbuild","repair","upgrade","sell",
 							"ser","next","nextn","ataca","recolhe","fim","save","restore","erase","load" };
 	if (tipo == 0) {
 		for (auto c : comandosC) {
@@ -208,28 +208,33 @@ string Interface::interpretaComando(int tipo, string linha) {
 				if (p != nullptr) {
 					char letra;
 					iss >> letra;
-
-					if (info.getNPerfil() >= MAX_PERFIS) {
-						cout << "Ja foram criados os 5 Perfis!\n";
+					if ((p->verificaPerfil(letra)) == true) {
+						cout << "A letra de Perfil pretendida ja esta utilizada, Tente de novo \n";
 					}
 					else {
-						info.adicionaNPerfil();
-						p->criaPerfil(letra); //Põe o Perfil no vetor Perfis
-						cout << "Perfil " << letra << " criado c/ sucesso!\n";
-						/*do {
-						perfis();
-						cin >> id;
-						if (id != 15) {
-						//Criação de uma caracteristica
-						Caracteristica car(id);
-						//Adiciona a caracteristica criada no vetor do perfil
-						p.adicionaCaracteristica(car);
+
+						if (info.getNPerfil() >= MAX_PERFIS) {
+							cout << "Ja foram criados os 5 Perfis!\n";
 						}
-						} while (id != TERMINA_PERFIL); //TERMINA_PERFIL corresponde à "terminação" da criação do perfil
-						//Guarda o perfil criado num vector Perfis
-						p.guardaPerfil(p);
-						//Mostra perfis
-						p.mostraPerfis();*/
+						else {
+							info.adicionaNPerfil();
+							p->criaPerfil(letra); //Põe o Perfil no vetor Perfis
+							cout << "Perfil " << letra << " criado c/ sucesso!\n";
+							/*do {
+							perfis();
+							cin >> id;
+							if (id != 15) {
+							//Criação de uma caracteristica
+							Caracteristica car(id);
+							//Adiciona a caracteristica criada no vetor do perfil
+							p.adicionaCaracteristica(car);
+							}
+							} while (id != TERMINA_PERFIL); //TERMINA_PERFIL corresponde à "terminação" da criação do perfil
+							//Guarda o perfil criado num vector Perfis
+							p.guardaPerfil(p);
+							//Mostra perfis
+							p.mostraPerfis();*/
+						}
 					}
 				}
 				else { cout << "Tem que criar primeiro a planicie! \n Comando DIM!\n"; }
@@ -331,7 +336,7 @@ string Interface::interpretaComando(int tipo, string linha) {
 						return 0;
 					}
 				}
-				if (comando == "build") {
+				if (comando == "build") { //rever !! falta colocar distancia maxima de 10 do castelo
 					string nome;
 					int l,c;
 					Colonia * col;
@@ -368,6 +373,32 @@ string Interface::interpretaComando(int tipo, string linha) {
 					}
 					/*for (int i = 0; i < eq_seres.size(); i++)
 						p->recolheSer(eq_seres[i], c, col);*/
+				}
+				if (comando == "list") {
+					char nome;
+					Colonia * c;
+					vector <Personagem *> edificios, seres;
+					iss >> nome;
+					c = p->getColonia(nome);
+					cout << "\t Listagem da Colonia " << nome << "\n";
+					c->printSer();
+				}
+				if (comando == "listp") {
+					char perfil;
+					iss >> perfil;
+					p->imprimePerfil(perfil);
+
+				}
+				if (comando == "listallp") {
+					p->imprimePerfil();
+
+				}
+				if (comando == "foco") {
+					int l, c;
+					iss >> l;
+					iss >> c;
+					p->imprimeMapaFoco(l, c);
+
 				}
 			}
 		}else{ 

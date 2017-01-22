@@ -1,4 +1,4 @@
-dim 10 10
+dim 20 20
 moedas 50
 oponentes 2
 mkperfil A
@@ -7,3 +7,5 @@ addperfil A 1
 addperfil A 2
 addperfil A 6
 addperfil A 7
+addperfil B 4
+addperfil B 7

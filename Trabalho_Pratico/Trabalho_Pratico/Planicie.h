@@ -21,6 +21,7 @@ class Planicie {
 	int moedas=0, oponentes;
 public:
 	Planicie(const int l, const int c, int m = 0, int o = 1);
+	bool verificaPerfil(char letra);
 	int getLinha();
 	int getColuna();
 	void setMoedas(int m);
@@ -38,12 +39,15 @@ public:
 	Colonia * getColonia(char id);
 	void posicionaPersonagem(Personagem* cas, int l, int c);
 	void imprimeMapa();
+	void imprimeMapaFoco(int linha, int coluna);
 	bool verificaColonia();
 	void moedasColonia(int x);
 	void movePersonagem(Personagem* per, int l, int c);
 	Personagem*** retornaMapa();
 	void recolheSer(Personagem* per, Personagem *cas, Colonia *c);
 	void ataca(Personagem* per);
+	void imprimePerfil(char p);
+	void imprimePerfil();
 };
 
 #endif

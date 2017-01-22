@@ -11,6 +11,7 @@ void Perfil::adicionaCaracteristicaNoPerfil(int id) {
 
 }
 
+
 void Perfil::removeCaracteristicaNoPerfil(int id) {
 	Pcaract.erase(iter2);
 	cout << "Encontrei \n";
@@ -43,10 +44,9 @@ Caracteristica* Perfil::getCaracteristasDoPerfil(char a) {
 
 //INCOMPLETO
 void Perfil::mostraPerfil() {
-	//Mostrar as carateristicas de um certo perfil
-	//Aqui teremos que usar os iteradores!!
+	cout << "Listagem do Perfil " << id_perfil << "\n";
 	for (int i = 0; i < Pcaract.size(); i++)
-		cout << Pcaract[i]->getIdCaracteristica() << "\n";
+		cout << Pcaract[i]->toString();
 }
 
 /*int Perfil::contaCaracteristicas() {

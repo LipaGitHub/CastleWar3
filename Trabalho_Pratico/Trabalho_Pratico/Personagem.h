@@ -2,6 +2,7 @@
 #ifndef PERSONAGEM_H
 #define PERSONAGEM_H
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 class Seres;
@@ -27,8 +28,12 @@ public:
 	void setX(int x);
 	void setY(int y);
 	Seres * procuraSer(int x);
-	/*virtual string toString()const {
-
-	}*/
+	virtual string toString()const {
+		ostringstream os;
+		os << "Ser numero "<< identificador <<"\t"<<"Saude: " << this->saude << " Defesa: " << this->defesa << endl;
+		return os.str();
+	}
+	
 };
+
 #endif

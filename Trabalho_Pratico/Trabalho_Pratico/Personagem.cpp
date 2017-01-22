@@ -78,3 +78,4 @@ void Personagem::setCusto(int c) {
 	this->custo - c;
 
 }
+

@@ -3,7 +3,7 @@
 #include "Personagem.h"
 #include "Planicie.h"
 
-Seres::Seres(int x, int y) :Personagem('S', x,y) {
+Seres::Seres(int x, int y, char nome) :Personagem('S', x,y) {
 	this->forca = 10;
 	this->velocidade = 0;
 	this->ataque = 0;
@@ -11,6 +11,7 @@ Seres::Seres(int x, int y) :Personagem('S', x,y) {
 	this->contador_remedio = 1;
 	this->bandeira = ' ';
 	this->castelo = 1;
+	this->perfil = nome;
 }
 Seres::Seres(vector<Caracteristica*> c ){
 	
